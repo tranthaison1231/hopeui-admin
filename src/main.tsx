@@ -17,7 +17,7 @@ const App = (): JSX.Element => {
   ])
 
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-screen font-inter">
       <RouterProvider router={router} />
     </div>
   )
