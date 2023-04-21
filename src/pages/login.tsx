@@ -1,13 +1,12 @@
-import { useContext, useState } from 'react'
-import Input from '../components/Input'
-import { useNavigate } from 'react-router-dom'
-import { login } from '../api/login'
-import { AuthContext } from '../contexts/AuthContext'
-import loginBg from '../assets/images/login-bg.png'
-import Logo from '../components/Logo'
 import Frame from '@/components/Frame'
 import MoreSelect from '@/components/MoreSelect'
-import Logotop from '../assets/images/logotop.png'
+import { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { login } from '../api/login'
+import loginBg from '../assets/images/login-bg.png'
+import logoBg from '../assets/images/logo-bg.png'
+import Logo from '../components/Logo'
+import { AuthContext } from '../contexts/AuthContext'
 
 const Login = (): JSX.Element => {
   const { onSuccess } = useContext(AuthContext)
@@ -31,7 +30,7 @@ const Login = (): JSX.Element => {
   return (
     <div className="login w-full flex h-screen bg-[#FFFFFF] relative">
       <div className="absolute">
-        <img src={Logotop} alt="logo2" className="w-60 h-60 absolute-top-28" />
+        <img src={logoBg} alt="logo2" className="w-60 h-60 absolute-top-28" />
       </div>
       <div className="form w-1/2 justify-center items-flex-start flex flex-col gap-10">
         <div className="justify-center items-flex-start flex flex-col gap-10 w-[436px] h-[602px] m-auto">
@@ -42,9 +41,7 @@ const Login = (): JSX.Element => {
           </div>
         </div>
       </div>
-      <div className="w-1/2 h-full ">
-        <img src={loginBg} className="h-full " />
-      </div>
+      <img src={loginBg} alt="login" className="w-1/2" />
     </div>
   )
 }
