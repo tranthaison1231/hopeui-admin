@@ -6,7 +6,7 @@ const Email = (): JSX.Element => {
   return (
     <div className="w-full flex h-screen">
       <div className="w-1/2 flex justify-center items-center">
-        <div className="max-w-xs">
+        <div>
           <Logo className="mb-10" />
           <div className="flex flex-col justify-center items-center mt-10">
             <img src={Tick} className="w-20" />
