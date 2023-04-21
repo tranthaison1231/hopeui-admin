@@ -3,6 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/index'
 import './style.css'
 import Login from './pages/login'
+import ErrClient from './pages/err-client'
+import ErrServer from './pages/err-server'
 
 const App = (): JSX.Element => {
   const router = createBrowserRouter([
@@ -13,6 +15,14 @@ const App = (): JSX.Element => {
     {
       path: '/login',
       element: <Login />
+    },
+    {
+      path: '/error-404',
+      element: <ErrClient />
+    },
+    {
+      path: '/error-505',
+      element: <ErrServer />
     }
   ])
 
