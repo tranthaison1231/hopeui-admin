@@ -5,6 +5,10 @@ import './style.css'
 import Login from '@/pages/login'
 import NotFoundPage from '@/pages/404'
 import ServerErrorPage from '@/pages/500'
+import Email from '@/pages/email'
+import LockScreen from '@/pages/lock-screen'
+import ResetPassword from '@/pages/reset-password'
+import './style.css'
 
 const App = (): JSX.Element => {
   const router = createBrowserRouter([
@@ -23,6 +27,19 @@ const App = (): JSX.Element => {
     {
       path: '/500',
       element: <ServerErrorPage />
+    },
+    {
+      path: '/email',
+      element: <Email />
+    },
+
+    {
+      path: '/lock-screen',
+      element: <LockScreen />
+    },
+    {
+      path: '/reset-password',
+      element: <ResetPassword />
     }
   ])
 

@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react'
-import Input from '../components/Input'
+import Input from '@/components/Input'
 import { useNavigate } from 'react-router-dom'
-import { login } from '../api/login'
-import { AuthContext } from '../contexts/AuthContext'
-import loginBg from '../assets/images/login-bg.png'
-import Logo from '../components/Logo'
+import { login } from '@/api/login'
+import { AuthContext } from '@/contexts/AuthContext'
+import loginBg from '@/assets/images/login-bg.png'
+import Logo from '@/components/Logo'
 
 const Login = (): JSX.Element => {
   const { onSuccess } = useContext(AuthContext)
