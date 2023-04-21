@@ -9,6 +9,7 @@ import Email from '@/pages/email'
 import LockScreen from '@/pages/lock-screen'
 import ResetPassword from '@/pages/reset-password'
 import './style.css'
+import Maintenance from './pages/maintenance'
 
 const App = (): JSX.Element => {
   const router = createBrowserRouter([
@@ -19,14 +20,6 @@ const App = (): JSX.Element => {
     {
       path: '/login',
       element: <Login />
-    },
-    {
-      path: '/404',
-      element: <NotFoundPage />
-    },
-    {
-      path: '/500',
-      element: <ServerErrorPage />
     },
     {
       path: '/email',
@@ -40,9 +33,21 @@ const App = (): JSX.Element => {
     {
       path: '/reset-password',
       element: <ResetPassword />
+    },
+    {
+      path: '/maintenance',
+      element: <Maintenance />
+    },
+    {
+      path: '/500',
+      element: <ServerErrorPage />
+    },
+    {
+      path: '*',
+      element: <NotFoundPage />
     }
   ])
-
+  
   return (
     <div className="w-full h-screen font-inter">
       <RouterProvider router={router} />

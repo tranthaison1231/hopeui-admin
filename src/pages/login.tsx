@@ -46,7 +46,7 @@ const Login = (): JSX.Element => {
           {error && <div className="text-red-700">{error}</div>}
         </div>
       </div>
-      <img src={loginBg} alt='hihi' className="w-1/2" />
+      <img src={loginBg} alt='login' className="w-1/2" />
     </div>
   )
 }
