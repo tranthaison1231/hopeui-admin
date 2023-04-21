@@ -1,10 +1,12 @@
+import Frame from '@/components/Frame'
+import MoreSelect from '@/components/MoreSelect'
 import { useContext, useState } from 'react'
-import Input from '@/components/Input'
 import { useNavigate } from 'react-router-dom'
-import { login } from '@/api/login'
-import { AuthContext } from '@/contexts/AuthContext'
-import loginBg from '@/assets/images/login-bg.png'
-import Logo from '@/components/Logo'
+import { login } from '../api/login'
+import loginBg from '../assets/images/login-bg.png'
+import logoBg from '../assets/images/logo-bg.png'
+import Logo from '../components/Logo'
+import { AuthContext } from '../contexts/AuthContext'
 
 const Login = (): JSX.Element => {
   const { onSuccess } = useContext(AuthContext)
@@ -26,27 +28,20 @@ const Login = (): JSX.Element => {
   }
 
   return (
-    <div className="w-full flex h-screen">
-      <div className="w-1/2 flex justify-center items-center">
-        <div className="max-w-xs">
-          <Logo className="mb-10" />
-          <h2 className="text-center text-3xl mb-4">Sign In</h2>
-          <p className="text-center text-sm text-[#8A92A6] mb-4">Sign in to stay connected. </p>
-          <form className="flex flex-col" onSubmit={onSubmit}>
-            <label htmlFor="username" className="mb-6">
-              <span className="mr-6">Username</span>
-              <Input id="username" name="username" />
-            </label>
-            <label htmlFor="password">
-              <span className="mr-6">Password</span>
-              <Input id="password" type="password" name="password" />
-            </label>
-            <button className="mt-6 p-2 bg-red-700">Login</button>
-          </form>
-          {error && <div className="text-red-700">{error}</div>}
+    <div className="login w-full flex h-screen bg-[#FFFFFF] relative">
+      <div className="absolute">
+        <img src={logoBg} alt="logo2" className="w-60 h-60 absolute-top-28" />
+      </div>
+      <div className="form w-1/2 justify-center items-flex-start flex flex-col gap-10">
+        <div className="justify-center items-flex-start flex flex-col gap-10 w-[436px] h-[602px] m-auto">
+          <Logo />
+          <div className="content flex flex-col justify-center items-center p-0 gap-1 order-0">
+            <Frame />
+            <MoreSelect />
+          </div>
         </div>
       </div>
-      <img src={loginBg} alt='login' className="w-1/2" />
+      <img src={loginBg} alt="login" className="w-1/2" />
     </div>
   )
 }
