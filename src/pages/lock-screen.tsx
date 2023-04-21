@@ -1,7 +1,7 @@
 import Input from '@/components/Input'
 import Logo from '@/components/Logo'
-import loginBg from '../assets/images/login-bg.png'
-import avatar from '../assets/images/avatar.png'
+import loginBg from '@/assets/images/login-bg.png'
+import avatar from '@/assets/images/avatar.png'
 
 const LockScreen = (): JSX.Element => {
   return (

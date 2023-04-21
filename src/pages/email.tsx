@@ -1,6 +1,6 @@
 import Logo from '@/components/Logo'
-import loginBg from '../assets/images/login-bg.png'
-import Tick from '../assets/images/tick.png'
+import loginBg from '@/assets/images/login-bg.png'
+import Tick from '@/assets/images/tick.png'
 
 const Email = (): JSX.Element => {
   return (
