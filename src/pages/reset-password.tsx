@@ -1,9 +1,8 @@
 import Logo from '@/components/Logo'
-import loginBg from '../assets/images/login-bg.png'
-
+import loginBg from '@/assets/images/login-bg.png'
 import Input from '@/components/Input'
 
-const Reset = (): JSX.Element => {
+const ResetPassword = (): JSX.Element => {
   return (
     <div className="w-full flex h-screen">
       <div className="w-1/2 flex justify-center items-center">
@@ -27,4 +26,4 @@ const Reset = (): JSX.Element => {
   )
 }
 
-export default Reset
+export default ResetPassword
