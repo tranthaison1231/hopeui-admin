@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react'
-import Input from '../components/Input'
+import Input from '@/components/Input'
 import { useNavigate } from 'react-router-dom'
-import { login } from '../api/login'
-import { AuthContext } from '../contexts/AuthContext'
-import loginBg from '../assets/images/login-bg.png'
-import Logo from '../components/Logo'
+import { login } from '@/api/login'
+import { AuthContext } from '@/contexts/AuthContext'
+import loginBg from '@/assets/images/login-bg.png'
+import Logo from '@/components/Logo'
 
 const Login = (): JSX.Element => {
   const { onSuccess } = useContext(AuthContext)
@@ -46,7 +46,7 @@ const Login = (): JSX.Element => {
           {error && <div className="text-red-700">{error}</div>}
         </div>
       </div>
-      <img src={loginBg} alt='hihi' className="w-1/2" />
+      <img src={loginBg} alt='login' className="w-1/2" />
     </div>
   )
 }

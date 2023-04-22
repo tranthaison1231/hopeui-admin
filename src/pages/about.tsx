@@ -1,4 +1,4 @@
-import withAuthenticate from '../hocs/withAuthenticate'
+import withAuthenticate from '@/hocs/withAuthenticate'
 
 const About = (): JSX.Element => {
   return <div>About</div>

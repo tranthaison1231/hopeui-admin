@@ -19,11 +19,11 @@ const LockScreen = (): JSX.Element => {
               <span className="text-[#8A92A6] mb-2">Password</span>
               <Input id="password" type="password" name="password" className="w-full" />
             </label>
-            <button className="bg-[#3A57E8] text-white px-6 py-2 rounded shadow-md">Login</button>
+            <button type='submit' className="bg-[#3A57E8] text-white px-6 py-2 rounded shadow-md">Login</button>
           </div>
         </div>
       </div>
-      <img src={loginBg} className="w-2/3" />
+      <img src={loginBg} className="w-2/3"  alt=''/>
     </div>
   )
 }
