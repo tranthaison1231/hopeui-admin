@@ -10,6 +10,7 @@ import Login from './pages/login'
 import Maintenance from './pages/maintenance'
 import SignUp from './pages/sign-up'
 import './style.css'
+import About from './pages/about'
 
 const App = (): JSX.Element => {
   const router = createBrowserRouter([
@@ -48,7 +49,11 @@ const App = (): JSX.Element => {
     {
       path: '*',
       element: <NotFoundPage />
-    }
+    },
+    {
+      path: '/about',
+      element: <About />
+    },
   ])
   
   return (

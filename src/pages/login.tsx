@@ -37,7 +37,7 @@ const Login = (): JSX.Element => {
           <Logo />
           <div className="content flex flex-col justify-center items-center p-0 gap-1 order-0">
             <Frame />
-            <MoreSelect />
+            <MoreSelect title='or sign in with other accounts?' haveAccount='Don’t have an account?' clickTo='Click here to sign up.' />
           </div>
         </div>
       </div>

@@ -1,7 +1,10 @@
-import withAuthenticate from '@/hocs/withAuthenticate'
+import EnterpriseClients from "@/components/EnterpriseClients"
+
 
 const About = (): JSX.Element => {
-  return <div>About</div>
+  return <div className="w-full h-screenc bg-[#8A92A6]">
+    <EnterpriseClients />
+  </div>
 }
 
-export default withAuthenticate(About)
+export default (About)
