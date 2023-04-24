@@ -10,6 +10,7 @@ import LockScreen from '@/pages/lock-screen'
 import ResetPassword from '@/pages/reset-password'
 import './style.css'
 import Maintenance from './pages/maintenance'
+import NavbarSpacial from './components/NavbarSpacial'
 
 const App = (): JSX.Element => {
   const router = createBrowserRouter([
@@ -45,6 +46,10 @@ const App = (): JSX.Element => {
     {
       path: '*',
       element: <NotFoundPage />
+    },
+    {
+      path: '/navbar-spacial',
+      element: <NavbarSpacial/>
     }
   ])
   
