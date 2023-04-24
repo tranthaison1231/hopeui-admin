@@ -21,7 +21,7 @@ const ResetPassword = (): JSX.Element => {
           </div>
         </div>
       </div>
-      <img src={loginBg} className="w-1/2" />
+      <img src={loginBg} className="w-1/2" alt='bg-login' />
     </div>
   )
 }

@@ -3,10 +3,10 @@ import ServerErrorPage from '@/pages/500'
 import Email from '@/pages/email'
 import Home from '@/pages/index'
 import LockScreen from '@/pages/lock-screen'
+import Login from '@/pages/login'
 import ResetPassword from '@/pages/reset-password'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Login from './pages/login'
 import Maintenance from './pages/maintenance'
 import SignUp from './pages/sign-up'
 import './style.css'
@@ -48,7 +48,7 @@ const App = (): JSX.Element => {
     {
       path: '*',
       element: <NotFoundPage />
-    }
+    },
   ])
   
   return (

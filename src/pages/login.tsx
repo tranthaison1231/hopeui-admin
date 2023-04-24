@@ -34,7 +34,6 @@ const Login = (): JSX.Element => {
     navigate('/sign-up')
   }
 
-
   return (
     <div className="login w-full flex h-screen bg-[#FFFFFF] relative">
       <div className="absolute">
@@ -114,10 +113,7 @@ const Login = (): JSX.Element => {
               <Socials />
               <div className="flex flex-row gap-3 order-2 font-serif font-normal text-base leading-7">
                 <p className="text-[#232D42]">Don’t have an account?</p>
-                <p
-                  onClick={moveToSignUp}
-                  className="text-[#3A57E8] cursor-pointer hover:text-[#4a66f3]"
-                >
+                <p onClick={moveToSignUp} className="text-[#3A57E8] cursor-pointer hover:text-[#4a66f3]">
                   Click here to sign up.
                 </p>
               </div>
