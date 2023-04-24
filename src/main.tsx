@@ -4,8 +4,9 @@ import Home from './pages/index'
 import './style.css'
 import Login from './pages/login'
 import Email from './pages/email'
-import LockScreen from './pages/lockscreen'
-import Reset from './pages/reset'
+import LockScreen from './pages/lock-screen'
+import Reset from './pages/reset-password'
+import DashBoard from './pages/dashboard'
 
 const App = (): JSX.Element => {
   const router = createBrowserRouter([
@@ -24,13 +25,18 @@ const App = (): JSX.Element => {
     },
 
     {
-      path: '/lockScreen',
+      path: '/lock-screen',
       element: <LockScreen />
     },
 
     {
-      path: '/resetPassword',
+      path: '/reset-password',
       element: <Reset />
+    },
+
+    {
+      path: '/dashboard',
+      element: <DashBoard />
     }
   ])
 
