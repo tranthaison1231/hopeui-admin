@@ -6,7 +6,7 @@ const DebitCard = (): JSX.Element => {
   return (
     <div className='w-[479px] h-[627px] flex flex-col mt-10 ml-24 rounded-lg bg-white'>
         <img src={cardBg} alt="card-bg" className='relative'/>
-        <div className='flex flex-col bg-white/25 backdrop-blur-lgq backdrop-opacity-100 border-solid border-2 border-white rounded-2xl text-white absolute ml-6 mt-11'>
+        <div className='flex flex-col bg-white/25 backdrop-blur-lg backdrop-opacity-100 border-solid border-2 border-white rounded-2xl text-white absolute ml-6 mt-11'>
           <div className='flex flex-row justify-between'>
           <div className='flex flex-col mt-6'>
           <h2 className='text-3xl font-extrabold ml-6'>VISA</h2>
