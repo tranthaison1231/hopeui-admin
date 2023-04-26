@@ -47,12 +47,12 @@ const App = (): JSX.Element => {
       element: <ServerErrorPage />
     },
     {
-      path: '*',
-      element: <NotFoundPage />
-    },
-    {
       path: '/billing',
       element: <Billing />
+    },
+    {
+      path: '*',
+      element: <NotFoundPage />
     },
   ])
   
