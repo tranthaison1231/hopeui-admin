@@ -10,6 +10,7 @@ import Login from './pages/login'
 import Maintenance from './pages/maintenance'
 import SignUp from './pages/sign-up'
 import './style.css'
+import Support from '@/pages/support'
 
 const App = (): JSX.Element => {
   const router = createBrowserRouter([
@@ -48,9 +49,14 @@ const App = (): JSX.Element => {
     {
       path: '*',
       element: <NotFoundPage />
+    },
+    {
+      path: '/support',
+      element: <Support />
     }
+
   ])
-  
+
   return (
     <div className="w-full h-screen font-inter">
       <RouterProvider router={router} />
