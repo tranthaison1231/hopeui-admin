@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }: Props): JSX.Element => {
     setIsAuthentication(false)
     localStorage.setItem('isAuthentication', 'false')
   }
-// redux toolkit + middleware saga/thunk
+  
   const onSuccess = (): void => {
     setIsAuthentication(true)
     localStorage.setItem('isAuthentication', 'true')
