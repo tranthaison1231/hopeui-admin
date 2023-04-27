@@ -9,8 +9,8 @@ const ActivityItem = ({ activity, day, time }: Props): JSX.Element => {
 
 
 
-        <div className=' flex mt-6 justify-end'>
-            <div className=' mb-8 mr-4'>
+        <div className=' flex justify-end mb-8'>
+            <div className=' mr-4'>
                 <h2 className=" text-lg">{activity}</h2>
                 <p className=" text-base text-[#8A92A6]">{day} {time}</p>
             </div>
@@ -25,5 +25,4 @@ const ActivityItem = ({ activity, day, time }: Props): JSX.Element => {
     )
 }
 
-
-export default ActivityItem
+export default ActivityItem 
