@@ -9,7 +9,7 @@ const Billing = (): JSX.Element => {
     <div className="bg-gray-400 h-[137%] relative ">
       <Background className="" />
       <BillingContent className=""/>
-      <img src={setting} alt="" className='absolute right-0 translate-y-32'/>
+      <img src={setting} alt="" className='absolute right-0 translate-y-32 cursor-pointer'/>
       <FooterSpacial className='w-full absolute bottom-0 '/>
     </div>
   )
