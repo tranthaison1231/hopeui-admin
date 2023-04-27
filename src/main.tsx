@@ -11,6 +11,8 @@ import Maintenance from './pages/maintenance'
 import SignUp from './pages/sign-up'
 import './style.css'
 import Pricing from './pages/pricing'
+import Support from './pages/Support'
+
 
 const App = (): JSX.Element => {
   const router = createBrowserRouter([
@@ -53,6 +55,10 @@ const App = (): JSX.Element => {
     {
       path: '/pricing',
       element: <Pricing />
+    },
+    {
+      path: '/support',
+      element: <Support />
     }
   ])
 
