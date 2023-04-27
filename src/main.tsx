@@ -10,8 +10,7 @@ import Login from './pages/login'
 import Maintenance from './pages/maintenance'
 import SignUp from './pages/sign-up'
 import './style.css'
-import Pricing from './pages/pricing'
-import Support from './pages/Support'
+import Pricing from '@/pages/pricing'
 
 
 const App = (): JSX.Element => {
@@ -55,10 +54,6 @@ const App = (): JSX.Element => {
     {
       path: '/pricing',
       element: <Pricing />
-    },
-    {
-      path: '/support',
-      element: <Support />
     }
   ])
 
