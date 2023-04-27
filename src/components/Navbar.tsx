@@ -1,18 +1,18 @@
-import backLogo from '@/assets/images/btn-back-spacial.png'
-import { ReactComponent as Table } from '@/assets/svgs/table.svg'
-import { ReactComponent as Component } from '@/assets/svgs/component.svg'
+import arrowLeft from '@/assets/images/arrow-left.png'
 import { ReactComponent as Authentication } from '@/assets/svgs/authentication.svg'
+import { ReactComponent as Component } from '@/assets/svgs/component.svg'
 import { ReactComponent as Dashboard } from '@/assets/svgs/dashboard.svg'
 import { ReactComponent as Error404 } from '@/assets/svgs/error404.svg'
 import { ReactComponent as Error505 } from '@/assets/svgs/error505.svg'
 import { ReactComponent as Example } from '@/assets/svgs/example.svg'
 import { ReactComponent as Form } from '@/assets/svgs/form.svg'
 import { ReactComponent as Icon } from '@/assets/svgs/icon.svg'
-import { ReactComponent as Map } from '@/assets/svgs/map.svg'
 import { ReactComponent as Maintence } from '@/assets/svgs/maintence.svg'
+import { ReactComponent as Map } from '@/assets/svgs/map.svg'
 import { ReactComponent as Menu } from '@/assets/svgs/menu.svg'
-import { ReactComponent as Widget } from '@/assets/svgs/widget.svg'
+import { ReactComponent as Table } from '@/assets/svgs/table.svg'
 import { ReactComponent as User } from '@/assets/svgs/user.svg'
+import { ReactComponent as Widget } from '@/assets/svgs/widget.svg'
 import Logo from "./Logo"
 import MenuItem from "./MenuItem"
 
@@ -23,12 +23,12 @@ const MENU_ITEMS = [
       {
         name: 'Dashboard',
         icon: <Dashboard />,
-        active: false
+        active: true
       },
       {
         name: 'Menu Style',
         icon: <Menu />,
-        active: true
+        active: false
       }
     ]
   },
@@ -107,21 +107,23 @@ const MENU_ITEMS = [
 
 const Navbar = (): JSX.Element => (
   <div className="relative w-[13%] h-full bg-[#FFFFFF] flex justify-center">
-    <div className="absolute -right-[28px] top-6">
-      <img src={backLogo} alt="back-logo" />
+    <div className="absolute -right-14 top-6 bg-[#3A57E8] px-2 py-1 rounded-full">
+      <button>
+        <img src={arrowLeft} alt="Arrow Left" />
+      </button>
     </div>
     <div className="ml-8 flex flex-col justify-center">
-      <Logo className="w-full p-5" />
-      <div className="w-full h-[2px] opacity-20 bg-slate-700"></div>
+      <Logo className="w-full p-5 ml-4" />
+      <div className="w-full h-[2px] opacity-20 bg-slate-500"></div>
       {MENU_ITEMS.map(item => (
         <div key={item.title}>
           <div className="pt-3 justify-center p-2 pb-0 overflow-hidden">
-            <div className="text-left pl-4 font-inter font-bold	opacity-50 py-3 p-1">{item.title}</div>
+            <div className="text-left pl-4 font-inter font-semibold	opacity-50 py-3 p-1 ml-6 text-[#ADB5BD]">{item.title}</div>
             {item.subMenus.map(subMenu => (
               <MenuItem key={subMenu.name} icon={subMenu.icon} name={subMenu.name} active={subMenu.active} />
             ))}
           </div>
-          <div className="h-[1px] mx-4 ml-3 opacity-20 bg-slate-700 "></div>
+          <div className="h-[1px] mx-4 ml-3 opacity-20 bg-slate-500 "></div>
         </div>
       ))}
     </div>
