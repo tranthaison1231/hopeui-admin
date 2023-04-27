@@ -73,7 +73,7 @@ export const FormBilling = (): JSX.Element => {
             <div className="w-[20%]">${value.discountPrice}</div>
           </div>
           <div className="flex-row flex justify-between py-4 font-bold text-base">
-            <div className="">Net Amount</div>
+            <div>Net Amount</div>
             <div className="w-[20%]">${value.netAmountPrice}</div>
           </div>
         </div>

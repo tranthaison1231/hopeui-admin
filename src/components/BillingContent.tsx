@@ -1,13 +1,9 @@
 import { FormBilling } from "./FormBilling"
 import logo from '@/assets/images/logo.png'
 
-interface Props {
-  className? : String
-}
-
-const BillingContent = ({className = ''}: Props): JSX.Element => {
+const BillingContent = (): JSX.Element => {
   return (
-    <div className={`${className}bg-white mx-8 rounded-md absolute top-[170px] p-5`}>
+    <div className="bg-white sticky rounded-md mt-40 p-5">
       <div className="flex flex-row justify-between py-2">
         <div className="font-bold text-3xl">Invoice #215462</div>
         <div className="">DUE DATE: Aug 19, 2022</div>
@@ -19,7 +15,7 @@ const BillingContent = ({className = ''}: Props): JSX.Element => {
         opposed to using 'Content here, content here', making it look like readable English.
       </p>
       <FormBilling />
-      <div className="">
+      <div>
         <div className="flex flex-row gap-3 py-1">
           <img src={logo} alt="" className="h-full p-1" />
           <p className="text-sm">
