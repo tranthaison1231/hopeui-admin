@@ -15,7 +15,7 @@ const SignUp = (): JSX.Element => {
   return (
     <div className="w-full h-screen flex flex-row items-start ">
       <div className="w-1/2 h-full">
-        <img src={LoginBg} className="h-full rotate-180 " />
+        <img src={LoginBg} className="h-full rotate-180 " alt="login-bg" />
       </div>
       <div className="w-1/2 order-1 h-full flex flex-row">
         <div className="flex flex-col items-start gap-6 justify-center my-auto ml-[100px]">
