@@ -34,10 +34,10 @@ const HeaderPrivate = () => {
             We are on a mission to help developers like you to build beautiful projects for free.
           </p>
         </div>
-        <div className="flex flex-row absolute right-0 top-0 bg-blue-700/40 mt-4 mr-10 px-6 py-2 rounded">
+        <button className="flex flex-row absolute right-0 top-0 bg-blue-700/40 mt-4 mr-10 px-6 py-2 rounded">
           <img src={voice} alt="Voice" />
           <p className="ml-2 text-white">Announcements</p>
-        </div>
+        </button>
       </div>
     </div>
   )
