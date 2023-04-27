@@ -11,12 +11,18 @@ import Maintenance from './pages/maintenance'
 import SignUp from './pages/sign-up'
 import './style.css'
 import Billing from './pages/billing'
+import MenuStyle from './pages/menu-style'
+import { NavbarProvider } from './contexts/NavbarContext'
 
 const App = (): JSX.Element => {
   const router = createBrowserRouter([
     {
       path: '/',
       element: <Home />
+    },
+    {
+      path: '/menu-style',
+      element: <MenuStyle />
     },
     {
       path: '/login',
@@ -53,7 +59,7 @@ const App = (): JSX.Element => {
     {
       path: '*',
       element: <NotFoundPage />
-    },
+    }
   ])
   
   return (
@@ -64,5 +70,7 @@ const App = (): JSX.Element => {
 }
 
 createRoot(document.getElementById('app') as HTMLElement).render(
-  <App />
+  <NavbarProvider>
+    <App />
+  </NavbarProvider>
 )
