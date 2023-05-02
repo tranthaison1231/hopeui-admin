@@ -26,3 +26,5 @@ const LogoItem = ({ icon, active, onClick, isCollapsed }: Props): JSX.Element =>
 
 
 export default LogoItem
+
+

@@ -114,7 +114,7 @@ const Navbar = (): JSX.Element => {
   const location = useLocation()
   const navigate = useNavigate()
   return (
-    <div className={`relative h-full bg-[#FFFFFF] flex justify-center ${isCollapsed ? 'w-7 mx-3' : 'w-64'}`}>
+    <div className={`relative h-full bg-[#FFFFFF] flex justify-center ${isCollapsed ? 'w-4 mx-3' : 'w-64'}`}>
       <button
         className="absolute -right-2 top-6 bg-[#3A57E8] w-8 h-8 flex justify-center items-center rounded-full"
         onClick={toggleIsCollapsed}
@@ -128,8 +128,8 @@ const Navbar = (): JSX.Element => {
           <div key={item.title}>
             <div className="pt-3 justify-center p-2 pb-0 overflow-hidden">
               <div
-                className={` pl-4 font-inter font-semibold	opacity-50 py-3 p-1 ml-6 text-[#ADB5BD] ${
-                  isCollapsed ? 'text-center' : 'text-left'
+                className={` pl-4 font-inter font-semibold	opacity-50 py-3 p-1 ml-6  ${
+                  isCollapsed ? 'text-center text-[#33373a]' : 'text-left text-[#ADB5BD]'
                 }`}
               >
                 {item.title}
@@ -157,7 +157,7 @@ const Navbar = (): JSX.Element => {
                 )
               )}
             </div>
-            <div className="h-[1px] mx-4 ml-3 opacity-20 bg-slate-500 "></div>
+            <div className={`h-[1px] mx-4 ml-3 opacity-20 bg-slate-500 ${isCollapsed ? 'invisible' : ''}`}></div>
           </div>
         ))}
       </div>

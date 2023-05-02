@@ -14,7 +14,9 @@ interface Props {
 const MenuItem = ({ icon, name, active, onClick, isCollapsed }: Props): JSX.Element => {
   return (
     <div
-      className={`flex flex-row px-6 py-2 cursor-pointer ${active ? 'bg-blue-600 rounded-sm' : 'justify-between'}`}
+      className={`flex flex-row py-2 cursor-pointer ${
+        active ? 'bg-blue-600 rounded-sm justify-center px-4' : 'justify-between px-6'
+      }`}
       onClick={onClick}
     >
       {React.cloneElement(icon, { className: active ? 'text-white' : 'text-[#8A92A6]' })}
