@@ -18,11 +18,7 @@ const MenuItem = ({ icon, name, active, onClick, isCollapsed }: Props): JSX.Elem
       onClick={onClick}
     >
       {React.cloneElement(icon, { className: active ? 'text-white' : 'text-[#8A92A6]' })}
-      <div
-        className={`px-3 pb-0 text-gray-500 text-base ${active ? 'text-white' : ''}`}
-      >
-        {name}
-      </div>
+      <div className={`px-3 pb-0 text-gray-500 text-base ${active ? 'text-white' : ''}`}>{name}</div>
       {!active && <ArrowRight className={active ? 'text-white' : 'text-[#8A92A6]'} alt="arrow right" />}
     </div>
   )

@@ -128,8 +128,8 @@ const Navbar = (): JSX.Element => {
           <div key={item.title}>
             <div className="pt-3 justify-center p-2 pb-0 overflow-hidden">
               <div
-                className={`text-left pl-4 font-inter font-semibold	opacity-50 py-3 p-1 ml-6 text-[#ADB5BD] ${
-                  isCollapsed ? 'invisible' : ''
+                className={` pl-4 font-inter font-semibold	opacity-50 py-3 p-1 ml-6 text-[#ADB5BD] ${
+                  isCollapsed ? 'text-center' : 'text-left'
                 }`}
               >
                 {item.title}
