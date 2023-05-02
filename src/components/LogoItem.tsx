@@ -13,8 +13,8 @@ interface Props {
 const LogoItem = ({ icon, active, onClick, isCollapsed }: Props): JSX.Element => {
   return (
     <div
-      className={`flex flex-row px-6 py-2 cursor-pointer float-right ${
-        active ? 'bg-blue-600 rounded-md ' : 'justify-between'
+      className={`flex flex-row py-2 cursor-pointer float-right ml-8 ${
+        active ? 'bg-blue-600 rounded-md px-4 mx-4' : 'justify-between px-6  '
       }`}
       onClick={onClick}
     >

@@ -116,17 +116,17 @@ const Navbar = (): JSX.Element => {
   return (
     <div className={`relative h-full bg-[#FFFFFF] flex justify-center ${isCollapsed ? 'w-4 mx-3' : 'w-64'}`}>
       <button
-        className="absolute -right-2 top-6 bg-[#3A57E8] w-8 h-8 flex justify-center items-center rounded-full"
+        className="absolute -right-4 top-6 bg-[#3A57E8] w-8 h-8 flex justify-center items-center rounded-full"
         onClick={toggleIsCollapsed}
       >
-        <ArrowLeft className={isCollapsed ? 'rotate-180' : ''} />
+        <ArrowLeft className={isCollapsed ? 'rotate-180 ' : ''} />
       </button>
-      <div className={`flex flex-col justify-center ${isCollapsed ? '' : ''}`}>
+      <div className={`flex flex-col justify-center ${isCollapsed ? 'border-r-2 ' : ''}`}>
         <Logo className={`w-full p-5 ${isCollapsed ? 'invisible' : ''}`} />
         <div className={`w-full h-[2px] opacity-20 bg-slate-500 ${isCollapsed ? 'invisible' : ''}`}></div>
         {MENU_ITEMS.map(item => (
           <div key={item.title}>
-            <div className="pt-3 justify-center p-2 pb-0 overflow-hidden">
+            <div className="pt-3 justify-center p-2 pb-0 overflow-hidden pr-0">
               <div
                 className={` pl-4 font-inter font-semibold	opacity-50 py-3 p-1 ml-6  ${
                   isCollapsed ? 'text-center text-[#33373a]' : 'text-left text-[#ADB5BD]'
