@@ -11,7 +11,7 @@ interface Props {
 }
 
 
-const MenuItem = ({ icon, name, active, onClick, isCollapsed }: Props): JSX.Element => {
+const MenuItem = ({ icon, name, active, onClick }: Props): JSX.Element => {
   return (
     <div
       className={`flex flex-row py-2 cursor-pointer ${

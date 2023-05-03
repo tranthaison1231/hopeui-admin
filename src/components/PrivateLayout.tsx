@@ -18,7 +18,7 @@ const PrivateLayout = ({ children }: Props): JSX.Element => {
       <Navbar />
       <div
         className={`flex flex-col ${
-          isCollapsed ? 'w-[calc(100%-5.5rem)] ' : 'w-[calc(100%-16rem)]'
+          isCollapsed ? 'w-[calc(100%-5rem)] ' : 'w-[calc(100%-16rem)]'
         }  absolute right-0`}
       >
         <div className="flex justify-between p-4 px-8 ">
