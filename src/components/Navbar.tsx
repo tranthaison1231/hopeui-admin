@@ -150,7 +150,7 @@ const Navbar = (): JSX.Element => {
                 />
               ))}
             </div>
-            <div className="h-[1px] mx-4 ml-3 opacity-20 bg-slate-500 "></div>
+            <div className="h-[1px] mx-4 ml-3 mt-3 opacity-20 bg-slate-500 "></div>
           </div>
         ))}
       </div>
