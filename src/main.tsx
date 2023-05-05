@@ -10,6 +10,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Maintenance from './pages/maintenance'
 import SignUp from './pages/sign-up'
 import './style.css'
+import Canlender from './pages/canlender'
 
 const App = (): JSX.Element => {
   const router = createBrowserRouter([
@@ -48,6 +49,10 @@ const App = (): JSX.Element => {
     {
       path: '*',
       element: <NotFoundPage />
+    },
+    {
+      path: '/calender',
+      element: <Canlender />
     },
   ])
   
