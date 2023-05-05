@@ -16,8 +16,8 @@ import { ReactComponent as Widget } from '@/assets/svgs/widget.svg'
 import { NavbarContext } from '@/contexts/NavbarContext'
 import { useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import Logo from "./Logo"
-import MenuItem from "./MenuItem"
+import Logo from './Logo'
+import MenuItem from './MenuItem'
 
 const MENU_ITEMS = [
   {
@@ -31,7 +31,7 @@ const MENU_ITEMS = [
       {
         name: 'Menu Style',
         icon: <Menu />,
-        path: '/menu-style',
+        path: '/menu-style'
       }
     ]
   },
@@ -107,26 +107,35 @@ const MENU_ITEMS = [
   }
 ]
 
-
 const Navbar = (): JSX.Element => {
-  const {  isCollapsed, toggleIsCollapsed }  = useContext(NavbarContext)
+  const { isCollapsed, toggleIsCollapsed } = useContext(NavbarContext)
   const location = useLocation()
   const navigate = useNavigate()
   return (
     <div className={`relative h-full bg-[#FFFFFF] flex justify-center ${isCollapsed ? 'w-10' : 'w-64'}`}>
       <button
-        className="absolute -right-2 top-6 bg-[#3A57E8] w-8 h-8 flex justify-center items-center rounded-full"
+        className={`absolute -right-2 top-6 bg-[#3A57E8] w-8 h-8 flex justify-center items-center rounded-full ${
+          isCollapsed ? 'left-16' : ''
+        }`}
         onClick={toggleIsCollapsed}
       >
         <ArrowLeft className={isCollapsed ? 'rotate-180' : ''} />
       </button>
       <div className="flex flex-col justify-center">
         <Logo className="w-full p-5" />
-        <div className="w-full h-[2px] opacity-20 bg-slate-500"></div>
+        <div
+          className={`${
+            isCollapsed ? 'h-[2px] mx-4 ml-3 opacity-20 bg-slate-500 ' : 'w-full h-[2px] opacity-20 bg-slate-500'
+          }`}
+        ></div>
         {MENU_ITEMS.map(item => (
           <div key={item.title}>
-            <div className="pt-3 justify-center p-2 pb-0 overflow-hidden">
-              <div className="text-left pl-4 font-inter font-semibold	opacity-50 py-3 p-1 ml-6 text-[#ADB5BD]">
+            <div className={`pt-3 justify-center p-2 pb-0 overflow-hidden`}>
+              <div
+                className={`${
+                  isCollapsed ? 'text-center' : 'text-left'
+                } pl-4 font-inter font-semibold	opacity-50 py-3 p-1 ml-6 text-[#ADB5BD]`}
+              >
                 {item.title}
               </div>
               {item.subMenus.map(subMenu => (
@@ -146,6 +155,7 @@ const Navbar = (): JSX.Element => {
         ))}
       </div>
     </div>
-  )}
+  )
+}
 
 export default Navbar
