@@ -125,7 +125,7 @@ const Navbar = (): JSX.Element => {
         <Logo className="w-full p-5" />
         <div
           className={`${
-            isCollapsed ? 'h-[2px] mx-4 ml-3 opacity-20 bg-slate-500 ' : 'w-full h-[2px] opacity-20 bg-slate-500'
+            isCollapsed ? 'w-full h-[2px] mx-4 ml-3 opacity-20 bg-slate-500 ' : 'w-full h-[2px] opacity-20 bg-slate-500'
           }`}
         ></div>
         {MENU_ITEMS.map(item => (

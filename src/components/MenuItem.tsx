@@ -13,8 +13,8 @@ const MenuItem = ({ icon, name, active, onClick }: Props): JSX.Element => {
   const { isCollapsed } = useContext(NavbarContext)
   return (
     <div
-      className={`flex flex-row px-6 py-2 cursor-pointer ${isCollapsed ? 'pl-20' : ''}  ${
-        active ? 'bg-blue-600 rounded-md' : 'justify-between'
+      className={`flex flex-row py-2 cursor-pointer ${isCollapsed ? 'ml-12 w-auto pl-[18px]' : 'px-5'}  ${
+        active ? 'bg-blue-600 rounded-md w-full' : 'justify-between'
       }`}
       onClick={onClick}
     >

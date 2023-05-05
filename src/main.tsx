@@ -61,7 +61,7 @@ const App = (): JSX.Element => {
       element: <NotFoundPage />
     }
   ])
-  
+
   return (
     <div className="w-full font-inter">
       <RouterProvider router={router} />
