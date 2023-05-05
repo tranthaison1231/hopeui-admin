@@ -1,14 +1,7 @@
-import Navbar from '@/components/Navbar'
-import Discover from '../components/Discover'
-import Footer from '../components/Footer'
-import Title from '../components/Title'
+import PrivateLayout from '@/components/PrivateLayout'
 
-const Home = (): JSX.Element => {
-  return (
-    <div>
-      <Navbar />
-    </div>
-  )
+const Dashboard = (): JSX.Element => {
+  return <PrivateLayout>Dashboard</PrivateLayout>
 }
 
-export default Home
+export default Dashboard
