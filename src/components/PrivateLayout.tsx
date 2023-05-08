@@ -12,11 +12,13 @@ interface Props {
 }
 
 const PrivateLayout = ({ children }: Props): JSX.Element => {
-  const { isCollapsed} = useContext(NavbarContext)
+  const { isCollapsed } = useContext(NavbarContext)
   return (
     <div className="w-full flex flex-row">
       <Navbar />
-      <div className={`flex flex-col ${isCollapsed ? 'w-[calc(100%-2.5rem)]' :  'w-[calc(100%-16rem)]'}  absolute right-0`}>
+      <div
+        className={`flex flex-col ${isCollapsed ? 'w-[calc(100%-6.2rem)]' : 'w-[calc(100%-16rem)]'}  absolute right-0`}
+      >
         <div className="flex justify-between p-4 px-8 ">
           <div className="flex justify-center items-center border-solid border-[#E9ECEF] border-[1px] rounded">
             <img src={search} alt="Search" className="h-6 pl-4" />
