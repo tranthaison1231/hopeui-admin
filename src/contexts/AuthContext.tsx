@@ -11,13 +11,13 @@ interface Props {
 }
 
 export const AuthProvider = ({ children }: Props): JSX.Element => {
-  const [isAuthentication, setIsAuthentication] = useState(localStorage.getItem('isAuthentication') === 'true')
+  const [isAuthentication, setIsAuthentication] = useState(localStorage.getItem('isAuthentication') === 'true') // 0 co thi undefi or null
 
   const onLogout = (): void => {
     setIsAuthentication(false)
     localStorage.setItem('isAuthentication', 'false')
   }
-
+  
   const onSuccess = (): void => {
     setIsAuthentication(true)
     localStorage.setItem('isAuthentication', 'true')
