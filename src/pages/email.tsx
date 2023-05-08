@@ -21,7 +21,7 @@ const Email = (): JSX.Element => {
               A email has been send to your email@domain.com. Please check for an email from company and click on the
               included link to reset your password.
             </p>
-            <button className="bg-[#3A57E8] rounded-md shadow-sm mt-9 px-6 py-2 text-white" onClick={handleClick}>
+            <button className="bg-primary rounded-md shadow-sm mt-9 px-6 py-2 text-white" onClick={handleClick}>
               Back to home
             </button>
           </div>

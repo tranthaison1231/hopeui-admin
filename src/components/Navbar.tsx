@@ -18,6 +18,7 @@ import { useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Logo from "./Logo"
 import MenuItem from "./MenuItem"
+import clsx from 'clsx'
 
 const MENU_ITEMS = [
   {
@@ -113,20 +114,28 @@ const Navbar = (): JSX.Element => {
   const location = useLocation()
   const navigate = useNavigate()
   return (
-    <div className={`relative h-full bg-[#FFFFFF] flex justify-center ${isCollapsed ? 'w-10 ml-4' : 'w-64'}`}>
+    <div className={clsx(`relative drop-shadow-md h-full bg-[#FFFFFF] flex justify-center`, {
+      'w-28': isCollapsed
+    })}>
       <button
-        className={`absolute -right-2 top-6 bg-[#3A57E8] w-8 h-8 flex justify-center items-center rounded-full ${isCollapsed ? '-right-14' : ''}`}
+        className={`absolute right-0 top-6 bg-primary w-8 h-8 flex justify-center items-center rounded-full 
+          translate-x-[50%]
+        `}
         onClick={toggleIsCollapsed}
       >
-        <ArrowLeft className={isCollapsed ? 'rotate-180' : ''} />
+        <ArrowLeft className={clsx({
+          'rotate-180': isCollapsed
+        })} />
       </button>
-      <div className="flex flex-col justify-center">
+      <div className="flex w-full flex-col justify-center">
         <Logo className="w-full p-5" />
         <div className="w-full h-[2px] opacity-20 bg-slate-500"></div>
         {MENU_ITEMS.map(item => (
           <div key={item.title}>
             <div className="pt-3 justify-center p-2 pb-0 overflow-hidden">
-              <div className="text-left pl-4 font-inter font-semibold	opacity-50 py-3 p-1 ml-6 text-[#ADB5BD]">
+              <div
+                className={`font-inter font-semibold	opacity-50 py-3 p-1 text-[#ADB5BD] ${ isCollapsed ? 'text-center' :'text-left'}`}
+              >
                 {item.title}
               </div>
               {item.subMenus.map(subMenu => (
@@ -141,7 +150,7 @@ const Navbar = (): JSX.Element => {
                 />
               ))}
             </div>
-            <div className="h-[1px] mx-4 ml-3 opacity-20 bg-slate-500 "></div>
+            <div className="h-[1px] mx-5 mt-1 ml-3 opacity-20 bg-slate-500"></div>
           </div>
         ))}
       </div>

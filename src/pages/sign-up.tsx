@@ -42,7 +42,7 @@ const SignUp = (): JSX.Element => {
                     >
                       <input
                         type="text"
-                        className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-[#3A57E8] focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
+                        className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-primary focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
                       />
                     </label>
                   </div>
@@ -56,7 +56,7 @@ const SignUp = (): JSX.Element => {
                     >
                       <input
                         type="text"
-                        className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-[#3A57E8] focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
+                        className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-primary focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
                       />
                     </label>
                   </div>
@@ -72,7 +72,7 @@ const SignUp = (): JSX.Element => {
                     >
                       <input
                         type="text"
-                        className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-[#3A57E8] focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
+                        className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-primary focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
                       />
                     </label>
                   </div>
@@ -86,7 +86,7 @@ const SignUp = (): JSX.Element => {
                     >
                       <input
                         type="text"
-                        className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-[#3A57E8] focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
+                        className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-primary focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
                       />
                     </label>
                   </div>
@@ -102,7 +102,7 @@ const SignUp = (): JSX.Element => {
                     >
                       <input
                         type="password"
-                        className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-[#3A57E8] focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
+                        className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-primary focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
                       />
                     </label>
                   </div>
@@ -116,7 +116,7 @@ const SignUp = (): JSX.Element => {
                     >
                       <input
                         type="password"
-                        className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-[#3A57E8] focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
+                        className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-primary focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
                       />
                     </label>
                   </div>
@@ -131,7 +131,7 @@ const SignUp = (): JSX.Element => {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-row justify-center items-center py-2 px-6 w-48 h-11 bg-[#3A57E8] rounded-[4px] order-1 cursor-pointer hover:bg-[#4a66f3] m-auto">
+              <div className="flex flex-row justify-center items-center py-2 px-6 w-48 h-11 bg-primary rounded-[4px] order-1 cursor-pointer hover:bg-[#4a66f3] m-auto">
                 <p className=" flex items-center text-center text-[#FFFFFF]">
                   Sign up
                 </p>
@@ -143,7 +143,7 @@ const SignUp = (): JSX.Element => {
                 <Socials />
                 <div className="flex flex-row gap-3 order-2 ">
                   <p className=" text-[#232D42]">Already have an Account</p>
-                  <p onClick={moveToLogin} className="text-[#3A57E8] cursor-pointer hover:text-[#4a66f3]">
+                  <p onClick={moveToLogin} className="text-primary cursor-pointer hover:text-[#4a66f3]">
                     Sign in
                   </p>
                 </div>
