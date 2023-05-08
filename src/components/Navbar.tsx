@@ -115,7 +115,7 @@ const Navbar = (): JSX.Element => {
   return (
     <div className={`relative h-full bg-[#FFFFFF] flex justify-center ${isCollapsed ? 'w-10 ml-4' : 'w-64'}`}>
       <button
-        className={`absolute -right-2 top-6 bg-[#3A57E8] w-8 h-8 flex justify-center items-center rounded-full ${isCollapsed ? '-right-16' : ''}`}
+        className={`absolute -right-2 top-6 bg-[#3A57E8] w-8 h-8 flex justify-center items-center rounded-full ${isCollapsed ? '-right-14' : ''}`}
         onClick={toggleIsCollapsed}
       >
         <ArrowLeft className={isCollapsed ? 'rotate-180' : ''} />
