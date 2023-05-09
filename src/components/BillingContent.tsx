@@ -26,7 +26,7 @@ const BillingContent = (): JSX.Element => {
         </div>
         <div className="py-1">Please pay within 15 days. Thank you for your business.</div>
       </div>
-      <div className="flex flex-row justify-center rounded-sm bg-[#3A57E8] mx-[660px] text-white p-1">Print</div>
+      <div className="flex flex-row justify-center rounded-sm bg-primary mx-[660px] text-white p-1">Print</div>
     </div>
   )
 }

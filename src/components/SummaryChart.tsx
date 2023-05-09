@@ -25,7 +25,7 @@ const SummaryChart = ({ total, data, width = 800, height = 400 }: Props): JSX.El
         </div>
         <div className="flex gap-6">
           <div className="flex gap-2 items-center">
-            <div className="w-3 h-3 bg-[#3A57E8] rounded-full" />
+            <div className="w-3 h-3 bg-primary rounded-full" />
             <span className="text-[#8A92A6]"> Sales </span>
           </div>
           <div className="flex gap-2 items-center">
