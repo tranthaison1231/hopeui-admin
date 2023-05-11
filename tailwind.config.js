@@ -21,7 +21,11 @@ module.exports = {
           info: '#3ABFF8',
           success: '#36D399',
           warning: '#FBBD23',
+<<<<<<< HEAD
           error: '#F87274'
+=======
+          error: '#F87272'
+>>>>>>> parent of fac78ee (change error color)
         }
       }
     ]
