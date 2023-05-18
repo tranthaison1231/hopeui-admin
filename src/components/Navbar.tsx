@@ -112,6 +112,7 @@ const Navbar = (): JSX.Element => {
   const { isCollapsed, toggleIsCollapsed } = useContext(NavbarContext)
   const location = useLocation()
   const navigate = useNavigate()
+
   return (
     <div
       className={clsx(`relative drop-shadow-md h-full bg-[#FFFFFF] flex justify-center`, {

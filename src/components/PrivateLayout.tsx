@@ -7,6 +7,7 @@ import search from '@/assets/images/search.png'
 import { useContext } from 'react'
 import { NavbarContext } from '@/contexts/NavbarContext'
 import { useNavigate } from 'react-router-dom'
+import { useUser, useClerk } from '@clerk/clerk-react'
 
 interface Props {
   children: React.ReactNode
@@ -15,8 +16,9 @@ interface Props {
 const PrivateLayout = ({ children }: Props): JSX.Element => {
   const navigate = useNavigate()
   const { isCollapsed } = useContext(NavbarContext)
+
   const handleLogout = () => {
-    navigate('/login')
+    signOut()
   }
   return (
     <div className="w-full flex flex-row">
@@ -36,10 +38,10 @@ const PrivateLayout = ({ children }: Props): JSX.Element => {
 
             <div className="dropdown">
               <div tabIndex={0} className="flex cursor-pointer">
-                <img src={avatarMin} alt="Avatar Min" />
+                <img src={user?.profileImageUrl} alt="Avatar Min" className="w-11 aspect-square rounded-full" />
                 <div className="flex flex-col ml-4 mr-4">
-                  <p>Austin Robertson</p>
-                  <p className="text-[13px] text-[#8A92A6]">Marketing Administrator</p>
+                  <p>{user?.fullName}</p>
+                  <p className="text-[13px] text-[#8A92A6]">{user?.emailAddresses?.[0]?.emailAddress ?? ''}</p>
                 </div>
               </div>
               <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">

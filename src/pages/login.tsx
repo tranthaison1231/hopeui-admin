@@ -1,21 +1,21 @@
-import { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { login } from '@/api/login'
 import loginBg from '@/assets/images/login-bg.png'
 import logoBg from '@/assets/images/logo-bg.png'
 import Logo from '@/components/Logo'
-import { AuthContext } from '@/contexts/AuthContext'
 import Socials from '@/components/Socials'
+import { useSignIn, useUser } from '@clerk/clerk-react'
+import { useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { ClerkProvider } from '@clerk/clerk-react'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 interface Inputs {
   username: string
   password: string
 }
 
-const Login = (): JSX.Element => {
-  const { onSuccess } = useContext(AuthContext)
+const Login = (): JSX.Element | null => {
+  const { isSignedIn } = useUser()
+  const { signIn, setActive } = useSignIn()
+
   const {
     register,
     handleSubmit,
@@ -23,23 +23,27 @@ const Login = (): JSX.Element => {
   } = useForm<Inputs>({
     mode: 'onBlur',
     defaultValues: {
-      username: 'Hoang',
+      email: 'Hoang',
       password: '123'
     }
   })
 
-  const [error, setError] = useState('')
+  const [error, setError] = useState<string | null>(null)
   const navigate = useNavigate()
 
   const onSubmit: SubmitHandler<Inputs> = data => {
-    const isAuth = login(data.username, data.password)
-    if (isAuth) {
-      navigate('/')
-      onSuccess()
-      localStorage.setItem('isAuthentication', 'true')
-    } else {
-      setError('Username or password is incorrect')
-    }
+    signIn
+      ?.create({
+        identifier: data.email,
+        password: data.password
+      })
+      .then(result => {
+        if (result.status === 'complete') {
+          navigate('/')
+          setActive({ session: result.createdSessionId })
+        }
+      })
+      .catch(err => setError(err.errors[0].longMessage))
   }
 
   const forgetPassword = () => {
@@ -48,6 +52,10 @@ const Login = (): JSX.Element => {
 
   const moveToSignUp = () => {
     navigate('/sign-up')
+  }
+
+  if (isSignedIn === undefined || isSignedIn) {
+    return <Navigate to="/" />
   }
 
   return (
@@ -75,16 +83,23 @@ const Login = (): JSX.Element => {
               >
                 <div className="flex flex-col items-start">
                   <div className="flex flex-col items-start gap-2 order-0">
-                    <h1 className="font-serif font-normal text-base leading-7 text-[#8A92A6] order-0 ">Username</h1>
-                    <label htmlFor="username" className="flex flex-col items-start gap-4 order-1 w-[420px] h-11 ">
+                    <h1 className="font-serif font-normal text-base leading-7 text-[#8A92A6] order-0 ">Email</h1>
+                    <label htmlFor="email" className="flex flex-col items-start gap-4 order-1 w-[420px] h-11 ">
                       <input
                         type="text"
                         className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[420px] h-11 bg-[#FFFF] order-0 border-primary focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
-                        {...register('username', { required: true })}
+                        {...register('email', {
+                          required: 'Email is required',
+                          pattern: {
+                            value:
+                              /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                            message: 'Please enter a valid email'
+                          }
+                        })}
                       />
                     </label>
                   </div>
-                  {errors.username && <p className="text-error">This field is required</p>}
+                  {errors.email?.message && <p className="text-error">{errors.email?.message}</p>}
                   <div className="flex flex-col items-start gap-2 order-0">
                     <h1 className="font-serif font-normal text-base leading-7 text-[#8A92A6] order-0">Password</h1>
                     <label htmlFor="password" className="flex flex-col items-start gap-4 order-1 w-[420px] h-11 ">
@@ -112,6 +127,7 @@ const Login = (): JSX.Element => {
                     </p>
                   </div>
                 </div>
+                {error && <p className="text-error">{error}</p>}
                 <button
                   type="submit"
                   className="flex flex-row justify-center items-center py-2 px-6 w-48 h-11 bg-primary rounded-[4px] order-1 cursor-pointer hover:bg-[#4a66f3]"
