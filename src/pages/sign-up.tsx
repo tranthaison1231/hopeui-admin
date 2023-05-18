@@ -1,16 +1,33 @@
-import LoginBg from "@/assets/images/login-bg.png"
-import Logo from "@/components/Logo"
+import LoginBg from '@/assets/images/login-bg.png'
+import Logo from '@/components/Logo'
 import LogoBg2 from '@/assets/images/logo-bg2.png'
-import Socials from "@/components/Socials"
-import { useNavigate } from "react-router-dom"
+import Socials from '@/components/Socials'
+import { useNavigate } from 'react-router-dom'
+import { SubmitHandler, useForm } from 'react-hook-form'
+
+interface Inputs {
+  firstname: string
+  lastname: string
+  phoneno: number
+  email: string
+  password: string
+  confirmpassword: string
+}
 
 const SignUp = (): JSX.Element => {
   const navigate = useNavigate()
 
-  const moveToLogin = () =>{
+  const onSubmit: SubmitHandler<Inputs> = data => console.log(data)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<Inputs>({
+    mode: 'onBlur'
+  })
+  const moveToLogin = () => {
     navigate('/login')
   }
-
 
   return (
     <div className="w-full h-screen flex flex-row items-start ">
@@ -30,12 +47,14 @@ const SignUp = (): JSX.Element => {
               </h2>
             </div>
             <div className="flex flex-col items-center justify-center gap-6 order-1 w-[32.25rem] h-[30.438rem]">
-              <div className="flex flex-col items-center justify-center gap-4 order-0 w-[32.25rem] h-[17.688rem]">
-                <div className="flex flex-row items-flex-start gap-4 order-0 w-[32.25rem] h-[4.32rem]">
+              {/* form */}
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="flex flex-col items-center justify-center gap-4 order-0 w-[32.25rem] h-[17.688rem]"
+              >
+                <div className="flex flex-row items-flex-start gap-4 order-0 w-[32.25rem] h-[4.32rem] mt-5">
                   <div className="flex flex-col items-flex-start gap-2 order-0 w-[15.625rem] h-[4.32rem]">
-                    <p className=" text-[#8A92A6] order-0 w-[5.188rem] h-[1.75em]">
-                      First Name
-                    </p>
+                    <p className=" text-[#8A92A6] order-0 w-[5.188rem] h-[1.75em]">First Name</p>
                     <label
                       htmlFor="fisrtname"
                       className="flex flex-col items-start gap-4 order-1 w-[15.625rem] h-[2.063rem]"
@@ -43,13 +62,13 @@ const SignUp = (): JSX.Element => {
                       <input
                         type="text"
                         className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-primary focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
+                        {...register('firstname', { required: true})}
                       />
                     </label>
+                    {errors.firstname && <p className="text-error flex flex-col order-1">This field is required</p>}
                   </div>
                   <div className="flex flex-col items-flex-start gap-2 order-0 w-[15.625rem] h-[4.32rem]">
-                    <p className=" text-[#8A92A6] order-0 w-[5.188rem] h-[1.75em]">
-                      Last Name
-                    </p>
+                    <p className=" text-[#8A92A6] order-0 w-[5.188rem] h-[1.75em]">Last Name</p>
                     <label
                       htmlFor="lastname"
                       className="flex flex-col items-start gap-4 order-1 w-[15.625rem] h-[2.063rem] "
@@ -57,45 +76,45 @@ const SignUp = (): JSX.Element => {
                       <input
                         type="text"
                         className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-primary focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
+                        {...register('lastname', { required: true })}
                       />
                     </label>
+                    {errors.lastname && <p className="text-error flex flex-col order-1">This field is required</p>}
                   </div>
                 </div>
-                <div className="flex flex-row items-flex-start gap-4 order-0 w-[32.25rem] h-[4.32rem]">
+                <div className="flex flex-row items-flex-start gap-4 order-0 w-[32.25rem] h-[4.32rem] mt-3">
                   <div className="flex flex-col items-flex-start gap-2 order-0 w-[15.625rem] h-[4.32rem]">
-                    <p className=" text-[#8A92A6] order-0 w-[5.188rem] h-[1.75em]">
-                      Email
-                    </p>
+                    <p className=" text-[#8A92A6] order-0 w-[5.188rem] h-[1.75em]">Email</p>
                     <label
                       htmlFor="email"
                       className="flex flex-col items-start gap-4 order-1 w-[15.625rem] h-[2.063rem] "
                     >
                       <input
-                        type="text"
+                        type="email"
                         className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-primary focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
+                        {...register('email', { required: true })}
                       />
                     </label>
+                    {errors.email && <p className="text-error flex flex-col order-1 mb-3">This field is required</p>}
                   </div>
                   <div className="flex flex-col items-flex-start gap-2 order-0 w-[15.625rem] h-[4.32rem]">
-                    <p className=" text-[#8A92A6] order-0 w-[5.188rem] h-[1.75em]">
-                      Phone No.
-                    </p>
+                    <p className=" text-[#8A92A6] order-0 w-[5.188rem] h-[1.75em]">Phone No.</p>
                     <label
                       htmlFor="phoneno"
                       className="flex flex-col items-start gap-4 order-1 w-[15.625rem] h-[2.063rem] "
                     >
                       <input
-                        type="text"
+                        type="number"
                         className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-primary focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
+                        {...register('phoneno', { required: true })}
                       />
                     </label>
+                    {errors.phoneno && <p className="text-error flex flex-col order-1 mb-3">This field is required</p>}
                   </div>
                 </div>
-                <div className="flex flex-row items-flex-start gap-4 order-0 w-[32.25rem] h-[4.32rem]">
+                <div className="flex flex-row items-flex-start gap-4 order-0 w-[32.25rem] h-[4.32rem] mt-3">
                   <div className="flex flex-col items-flex-start gap-2 order-0 w-[15.625rem] h-[4.32rem]">
-                    <p className=" text-[#8A92A6] order-0 w-[5.188rem] h-[1.75em]">
-                      Password
-                    </p>
+                    <p className=" text-[#8A92A6] order-0 w-[5.188rem] h-[1.75em]">Password</p>
                     <label
                       htmlFor="password"
                       className="flex flex-col items-start gap-4 order-1 w-[15.625rem] h-[2.063rem] "
@@ -103,13 +122,13 @@ const SignUp = (): JSX.Element => {
                       <input
                         type="password"
                         className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-primary focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
+                        {...register('password', { required: true, maxLength: 16  })}
                       />
                     </label>
+                    {errors.password && <p className="text-error flex flex-col order-1 mb-3">Password is wrong</p>}
                   </div>
                   <div className="flex flex-col items-flex-start gap-2 order-0 w-[15.625rem] h-[4.32rem]">
-                    <p className=" text-[#8A92A6] order-0 w-[5.188rem] h-[1.75em]">
-                      Confirm Password
-                    </p>
+                    <p className=" text-[#8A92A6] order-0 w-[5.188rem] h-[1.75em]">Confirm Password</p>
                     <label
                       htmlFor="confirmPassword"
                       className="flex flex-col items-start gap-4 order-1 w-[15.625rem] h-[2.063rem] "
@@ -117,37 +136,38 @@ const SignUp = (): JSX.Element => {
                       <input
                         type="password"
                         className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[15.625rem] h-[2.063rem] bg-[#FFFF] order-0 border-primary focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
+                        {...register('confirmpassword', { required: true, maxLength: 15   })}
                       />
                     </label>
+                    {errors.confirmpassword && (
+                      <p className="text-error flex flex-col order-1 mb-3">This field is required</p>
+                    )}
                   </div>
                 </div>
-                <div className="remember flex flex-row items-center gap-2 order-0 w-[15.063rem] h-[1.75rem]">
+                <div className="remember flex flex-row items-center gap-2 order-0 w-[15.063rem] h-[1.75rem] mt-2">
                   <input
                     type="checkbox"
                     className="border-box flex flex-row justify-center items-center display-none w-5 h-5"
                   />
-                  <p className=" text-[#8A92A6] order-0 ">
-                    I agree with the terms of use
-                  </p>
+                  <p className=" text-[#8A92A6] order-0 ">I agree with the terms of use</p>
                 </div>
-              </div>
-              <div className="flex flex-row justify-center items-center py-2 px-6 w-48 h-11 bg-primary rounded-[4px] order-1 cursor-pointer hover:bg-[#4a66f3] m-auto">
-                <p className=" flex items-center text-center text-[#FFFFFF]">
-                  Sign up
-                </p>
-              </div>
-              <div className="flex flex-col justify-center items-center gap-4 order-1">
-                <p className="w-56 h-7  text-[#232D42] order-0">
-                  or sign up with other accounts?
-                </p>
-                <Socials />
-                <div className="flex flex-row gap-3 order-2 ">
-                  <p className=" text-[#232D42]">Already have an Account</p>
-                  <p onClick={moveToLogin} className="text-primary cursor-pointer hover:text-[#4a66f3]">
-                    Sign in
-                  </p>
+                <button
+                  type="submit"
+                  className="flex flex-row justify-center items-center py-2 px-6 w-48 h-11 bg-primary rounded-[4px] order-1 hover:bg-[#4a66f3] m-auto"
+                >
+                  <p className=" flex items-center text-center text-[#FFFFFF]">Sign up</p>
+                </button>
+                <div className="flex flex-col justify-center items-center gap-4 order-1">
+                  <p className="w-56 h-7  text-[#232D42] order-0">or sign up with other accounts?</p>
+                  <Socials />
+                  <div className="flex flex-row gap-3 order-2 ">
+                    <p className=" text-[#232D42]">Already have an Account</p>
+                    <p onClick={moveToLogin} className="text-primary cursor-pointer hover:text-[#4a66f3]">
+                      Sign in
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>

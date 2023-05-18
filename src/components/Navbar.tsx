@@ -18,6 +18,7 @@ import { useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Logo from './Logo'
 import MenuItem from './MenuItem'
+import clsx from 'clsx'
 
 const MENU_ITEMS = [
   {

@@ -7,10 +7,10 @@ import Logo from '@/components/Logo'
 import { AuthContext } from '@/contexts/AuthContext'
 import Socials from '@/components/Socials'
 import { useForm, SubmitHandler } from 'react-hook-form'
-
+import { ClerkProvider } from '@clerk/clerk-react'
 
 interface Inputs {
-  username: string,
+  username: string
   password: string
 }
 
@@ -19,7 +19,7 @@ const Login = (): JSX.Element => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm<Inputs>({
     mode: 'onBlur',
     defaultValues: {

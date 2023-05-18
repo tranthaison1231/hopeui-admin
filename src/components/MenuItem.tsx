@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { ReactComponent as ArrowRight } from '@/assets/svgs/arrow-right.svg'
+import { NavbarContext } from '@/contexts/NavbarContext'
 
 interface Props {
   icon: React.ReactElement

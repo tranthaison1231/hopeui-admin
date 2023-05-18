@@ -13,7 +13,11 @@ interface Props {
 }
 
 const PrivateLayout = ({ children }: Props): JSX.Element => {
+  const navigate = useNavigate()
   const { isCollapsed } = useContext(NavbarContext)
+  const handleLogout = () => {
+    navigate('/login')
+  }
   return (
     <div className="w-full flex flex-row">
       <Navbar />
