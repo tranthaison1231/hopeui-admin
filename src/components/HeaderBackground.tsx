@@ -10,7 +10,11 @@ const HeaderBackground = (): JSX.Element => {
           <h2 className="text-4xl font-bold py-2">Hello Devs !</h2>
           <p>We are on a mission to help developers like you build successful beautiful projects for free.</p>
         </div>
+<<<<<<< HEAD
         <button className="flex px-5 py-3 bg-[#3A57E8] h-fit">
+=======
+        <button className="flex px-5 py-3 bg-primary h-fit">
+>>>>>>> a263800edd02179efd35767965ccf3799441809a
           <img src={voice} alt="voice" />
           <span>Announcments</span>
         </button>

@@ -17,7 +17,7 @@ const ResetPassword = (): JSX.Element => {
               <span className="text-[#8A92A6] mb-2">Email</span>
               <Input id="email" type="text" name="email" className="w-full" />
             </label>
-            <button className="bg-[#3A57E8] text-white px-6 py-2 rounded shadow-md mt-10">Reset</button>
+            <button className="bg-primary text-white px-6 py-2 rounded shadow-md mt-10">Reset</button>
           </div>
         </div>
       </div>

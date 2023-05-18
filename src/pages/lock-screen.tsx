@@ -7,7 +7,11 @@ import avatar from '@/assets/images/avatar.png'
 const LockScreen = (): JSX.Element => {
   return (
     <div className="w-full flex h-screen">
+<<<<<<< HEAD
       <img src={logoBackground} className="absolute" alt=''/>
+=======
+      <img src={logoBackground} className="absolute" alt="" />
+>>>>>>> a263800edd02179efd35767965ccf3799441809a
       <div className="w-1/3 flex justify-center items-center">
         <div>
           <Logo className="mb-10" />
@@ -19,11 +23,15 @@ const LockScreen = (): JSX.Element => {
               <span className="text-[#8A92A6] mb-2">Password</span>
               <Input id="password" type="password" name="password" className="w-full" />
             </label>
-            <button className="bg-[#3A57E8] text-white px-6 py-2 rounded shadow-md">Login</button>
+            <button className="bg-primary text-white px-6 py-2 rounded shadow-md">Login</button>
           </div>
         </div>
       </div>
+<<<<<<< HEAD
       <img src={loginBg} className="w-2/3" alt=''/>
+=======
+      <img src={loginBg} className="w-2/3" alt="" />
+>>>>>>> a263800edd02179efd35767965ccf3799441809a
     </div>
   )
 }

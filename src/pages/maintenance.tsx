@@ -34,7 +34,7 @@ const Maintenance = (): JSX.Element => {
               className="h-11 w-[400px] px-4 py-2 bg-transparent border-solid border-white border-[1px] rounded placeholder:text-white"
               placeholder="Enter your email"
             />
-            <button className="text-[#3A57E8] bg-white px-4 py-2 rounded"> Notify Me </button>
+            <button className="text-primary bg-white px-4 py-2 rounded"> Notify Me </button>
           </div>
         </div>
       </div>
