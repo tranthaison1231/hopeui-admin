@@ -22,19 +22,58 @@ if (!clerkPubKey) {
 }
 
 const App = (): JSX.Element => {
-  const navigate = useNavigate()
-  
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Home />
+    },
+    {
+      path: '/menu-style',
+      element: <MenuStyle />
+    },
+    {
+      path: '/login',
+      element: <Login />
+    },
+    {
+      path: '/sign-up',
+      element: <SignUp />
+    },
+    {
+      path: '/email',
+      element: <Email />
+    },
+    {
+      path: '/lock-screen',
+      element: <LockScreen />
+    },
+    {
+      path: '/reset-password',
+      element: <ResetPassword />
+    },
+    {
+      path: '/maintenance',
+      element: <Maintenance />
+    },
+    {
+      path: '/500',
+      element: <ServerErrorPage />
+    },
+    {
+      path: '/billing',
+      element: <Billing />
+    },
+    {
+      path: '*',
+      element: <NotFoundPage />
+    }
+  ])
+
   return (
-    <ClerkProvider
-      publishableKey={clerkPubKey}
-      navigate={to => navigate(to)}
-    >
+    <ClerkProvider publishableKey={clerkPubKey} navigate={to => navigate(to)}>
       <Routes>
-        <Route
-          path="/sign-in/*"
-          element={ <Login /> }
-        />
-        <Route path="/sign-up/*" element={<SignUp  />} />
+        <Route path="/sign-in/*" element={<Login />} />
+        <Route path="/sign-up/*" element={<SignUp />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/lock-screen" element={<LockScreen />} />
         <Route

@@ -4,11 +4,11 @@ import Logo from '@/components/Logo'
 import Socials from '@/components/Socials'
 import { useSignIn, useUser } from '@clerk/clerk-react'
 import { useState } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { useForm, SubmitHandler } from 'react-hook-form'
 import { Navigate, useNavigate } from 'react-router-dom'
 
 interface Inputs {
-  email: string
+  username: string
   password: string
 }
 
