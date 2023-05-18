@@ -156,11 +156,6 @@ const Navbar = (): JSX.Element => {
         ))}
       </div>
     </div>
-<<<<<<< HEAD
-  )
-}
-=======
   )}
->>>>>>> a263800edd02179efd35767965ccf3799441809a
 
 export default Navbar

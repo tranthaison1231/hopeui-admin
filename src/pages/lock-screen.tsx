@@ -7,11 +7,7 @@ import avatar from '@/assets/images/avatar.png'
 const LockScreen = (): JSX.Element => {
   return (
     <div className="w-full flex h-screen">
-<<<<<<< HEAD
-      <img src={logoBackground} className="absolute" alt=''/>
-=======
       <img src={logoBackground} className="absolute" alt="" />
->>>>>>> a263800edd02179efd35767965ccf3799441809a
       <div className="w-1/3 flex justify-center items-center">
         <div>
           <Logo className="mb-10" />
@@ -27,11 +23,7 @@ const LockScreen = (): JSX.Element => {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-      <img src={loginBg} className="w-2/3" alt=''/>
-=======
       <img src={loginBg} className="w-2/3" alt="" />
->>>>>>> a263800edd02179efd35767965ccf3799441809a
     </div>
   )
 }

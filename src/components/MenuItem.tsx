@@ -8,21 +8,10 @@ interface Props {
   name: string
   active?: boolean
   onClick?: () => void
-<<<<<<< HEAD
-  isCollapsed?: boolean
-=======
->>>>>>> a263800edd02179efd35767965ccf3799441809a
 }
 
 
 const MenuItem = ({ icon, name, active, onClick }: Props): JSX.Element => {
-<<<<<<< HEAD
-  return (
-    <div
-      className={`flex flex-row py-2 cursor-pointer ${
-        active ? 'bg-blue-600 rounded-sm justify-center px-4' : 'justify-between px-6'
-      }`}
-=======
   const { isCollapsed } = useContext(NavbarContext)
   return (
     <div
@@ -30,7 +19,6 @@ const MenuItem = ({ icon, name, active, onClick }: Props): JSX.Element => {
         'bg-primary rounded-md': active,
         'justify-between': !active,
       })}
->>>>>>> a263800edd02179efd35767965ccf3799441809a
       onClick={onClick}
     >
       {React.cloneElement(icon, { className: active ? 'text-white' : 'text-[#8A92A6]' })}
