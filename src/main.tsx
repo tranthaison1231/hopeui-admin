@@ -14,6 +14,7 @@ import Maintenance from './pages/maintenance'
 import MenuStyle from './pages/menu-style'
 import './style.css'
 import SignUp from './pages/sign-up'
+import { Toaster } from 'react-hot-toast'
 
 const clerkPubKey = import.meta.env.VITE_APP_CLERK_PUBLISHABLE_KEY
 
@@ -30,10 +31,7 @@ const App = (): JSX.Element => {
       navigate={to => navigate(to)}
     >
       <Routes>
-        <Route
-          path="/sign-in/*"
-          element={ <Login /> }
-        />
+        <Route path="/sign-in/*" element={<Login /> } />
         <Route path="/sign-up/*" element={<SignUp  />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/lock-screen" element={<LockScreen />} />
@@ -68,5 +66,6 @@ createRoot(document.getElementById('app') as HTMLElement).render(
     <NavbarProvider>
       <App />
     </NavbarProvider>
+    <Toaster position="top-right" />
   </BrowserRouter>
 )
