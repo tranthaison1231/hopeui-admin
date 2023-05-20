@@ -5,6 +5,7 @@ import FormItem from '@/components/FormItem'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { validator } from '@/utils/validator'
 import { useSignIn } from '@clerk/clerk-react'
+import Button from '@/components/Button'
 // import toast from 'react-hot-toast'
 
 interface Inputs {
@@ -59,7 +60,7 @@ const ResetPassword = (): JSX.Element => {
                 })}
               />
             </FormItem>
-            <button className="bg-primary text-white px-6 py-2 rounded shadow-md mt-10">Reset</button>
+            <Button className="mt-10">Reset</Button>
           </div>
         </form>
       </div>
