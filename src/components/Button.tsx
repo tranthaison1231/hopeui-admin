@@ -1,13 +1,27 @@
-interface InputProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+import { cva, type VariantProps } from 'class-variance-authority'
 
-const Button = (props: InputProps): JSX.Element => {
-  return (
-    <button
-      {...props}
-      className={`py-2 px-16 bg-primary rounded-[4px] cursor-pointer hover:bg-[#4a66f3]
-      font-normal text-base leading-7 text-white ${props.className ?? ''}`}
-    />
-  )
+const button = cva('button', {
+  variants: {
+    intent: {
+      primary: ['bg-primary', 'text-white'],
+      secondary: ['bg-secondary', 'text-white']
+    },
+    size: {
+      medium: ['text-base ', 'py-2', 'px-16', 'rounded-[4px]', 'font-normal', 'leading-7']
+    }
+  },
+  compoundVariants: [{ intent: 'primary', size: 'medium', className: ['hover:opacity-90'] }],
+  defaultVariants: {
+    intent: 'primary',
+    size: 'medium'
+  }
+})
+
+
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof button> {}
+
+const Button = ({ className, intent, size, ...props }: ButtonProps): JSX.Element => {
+  return <button className={button({ intent, size, className })} {...props} />
 }
 
 export default Button
