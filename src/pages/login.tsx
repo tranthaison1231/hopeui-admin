@@ -1,10 +1,14 @@
 import loginBg from '@/assets/images/login-bg.png'
 import logoBg from '@/assets/images/logo-bg.png'
+import Button from '@/components/Button'
+import FormItem from '@/components/FormItem'
+import Input from '@/components/Input'
 import Logo from '@/components/Logo'
 import Socials from '@/components/Socials'
+import { validator } from '@/utils/validator'
 import { useSignIn, useUser } from '@clerk/clerk-react'
-import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 import { Navigate, useNavigate } from 'react-router-dom'
 
 interface Inputs {
@@ -23,12 +27,11 @@ const Login = (): JSX.Element | null => {
   } = useForm<Inputs>({
     mode: 'onBlur',
     defaultValues: {
-      email: 'Hoang',
-      password: '123'
+      email: '',
+      password: ''
     }
   })
 
-  const [error, setError] = useState<string | null>(null)
   const navigate = useNavigate()
 
   const onSubmit: SubmitHandler<Inputs> = data => {
@@ -37,13 +40,13 @@ const Login = (): JSX.Element | null => {
         identifier: data.email,
         password: data.password
       })
-      .then(result => {
+      .then(async result => {
         if (result.status === 'complete') {
+          await setActive({ session: result.createdSessionId })
           navigate('/')
-          setActive({ session: result.createdSessionId })
         }
       })
-      .catch(err => setError(err.errors[0].longMessage))
+      .catch(err => toast.error(err.errors[0].longMessage))
   }
 
   const forgetPassword = () => {
@@ -81,36 +84,22 @@ const Login = (): JSX.Element | null => {
                 onSubmit={handleSubmit(onSubmit)}
                 className="flex flex-col justify-center items-center p-0 gap-6 order-1 "
               >
-                <div className="flex flex-col items-start">
-                  <div className="flex flex-col items-start gap-2 order-0">
-                    <h1 className="font-serif font-normal text-base leading-7 text-[#8A92A6] order-0 ">Email</h1>
-                    <label htmlFor="email" className="flex flex-col items-start gap-4 order-1 w-[420px] h-11 ">
-                      <input
-                        type="text"
-                        className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[420px] h-11 bg-[#FFFF] order-0 border-primary focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
-                        {...register('email', {
-                          required: 'Email is required',
-                          pattern: {
-                            value:
-                              /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                            message: 'Please enter a valid email'
-                          }
-                        })}
-                      />
-                    </label>
-                  </div>
-                  {errors.email?.message && <p className="text-error">{errors.email?.message}</p>}
-                  <div className="flex flex-col items-start gap-2 order-0">
-                    <h1 className="font-serif font-normal text-base leading-7 text-[#8A92A6] order-0">Password</h1>
-                    <label htmlFor="password" className="flex flex-col items-start gap-4 order-1 w-[420px] h-11 ">
-                      <input
-                        type="password"
-                        className="border-solid rounded-md border-[1px] border-box px-4 py-2 gap-56 w-[420px] h-11 bg-[#FFFF] order-0 border-primary focus:bg-blue-100 hover:bg-blue-100 focus:outline-none"
-                        {...register('password', { required: true })}
-                      />
-                    </label>
-                  </div>
-                  {errors.password && <p className="text-error">This field is required</p>}
+                <div className="flex flex-col gap-2">
+                  <FormItem label="Email" error={errors?.email?.message}>
+                    <Input
+                      type="text"
+                      {...register('email', {
+                        required: 'Email is required',
+                        pattern: {
+                          value: validator.email,
+                          message: 'Please enter a valid email'
+                        }
+                      })}
+                    />
+                  </FormItem>
+                  <FormItem label="Password" error={errors?.password?.message}>
+                    <Input type="password" {...register('password', { required: true })} />
+                  </FormItem>
                   <div className="flex flex-row items-start p-0 gap-40 order-2 w-full">
                     <div className="remember flex flex-row items-center gap-2 order-0">
                       <input
@@ -127,15 +116,9 @@ const Login = (): JSX.Element | null => {
                     </p>
                   </div>
                 </div>
-                {error && <p className="text-error">{error}</p>}
-                <button
-                  type="submit"
-                  className="flex flex-row justify-center items-center py-2 px-6 w-48 h-11 bg-primary rounded-[4px] order-1 cursor-pointer hover:bg-[#4a66f3]"
-                >
-                  <p className="font-serif font-normal text-base leading-7 flex items-center text-center text-[#FFFFFF]">
-                    Sign in
-                  </p>
-                </button>
+                <Button type="submit">
+                  Sign in
+                </Button>
               </form>
             </div>
             <div className="flex flex-col justify-center items-center gap-4 order-1">

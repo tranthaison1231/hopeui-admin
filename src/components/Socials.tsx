@@ -5,7 +5,7 @@ import linkedin from '@/assets/images/linkedin.png'
 
 const Socials = (): JSX.Element => {
   return (
-    <div className="flex flex-row items-start gap-6 order-1">
+    <div className="flex flex-row items-start gap-6">
       <img src={gmail} alt="Gmail" className="cursor-pointer" />
       <img src={facebook} alt="Facebook" className="cursor-pointer" />
       <img src={instagram} alt="Instagram" className="cursor-pointer" />
