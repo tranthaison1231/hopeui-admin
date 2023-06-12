@@ -49,7 +49,7 @@ const SignUp = (): JSX.Element => {
       })
       .then(async result => {
         await signUp.prepareEmailAddressVerification({ strategy: 'email_link', redirectUrl: '/email' })
-        toast.success('You are sign up successfully.Please check your email to confirm!')
+        toast.success('You are sign up successfully. Please check your email to confirm!')
       })
       .catch(err => toast.error(err.errors[0].longMessage))
   }

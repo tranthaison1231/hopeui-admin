@@ -1,13 +1,12 @@
-import Navbar from '@/components/Navbar'
-import avatarMin from '@/assets/images/avatar-min.png'
 import england from '@/assets/images/england.png'
 import message from '@/assets/images/message.png'
 import notification from '@/assets/images/notification.png'
 import search from '@/assets/images/search.png'
-import { useContext } from 'react'
+import Navbar from '@/components/Navbar'
 import { NavbarContext } from '@/contexts/NavbarContext'
+import { useProfile } from '@/hooks/useProfile'
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useUser, useClerk } from '@clerk/clerk-react'
 
 
 interface Props {
@@ -15,12 +14,13 @@ interface Props {
 }
 
 const PrivateLayout = ({ children }: Props): JSX.Element => {
-  const { user } = useUser()
-  const { signOut,  } = useClerk()
+  const { profile } = useProfile()
+  const navigate = useNavigate()
   const { isCollapsed} = useContext(NavbarContext)
 
   const handleLogout = () => {
-    signOut()
+    localStorage.removeItem('accessToken')
+    navigate('/sign-in')
   }
 
   return (
@@ -39,10 +39,10 @@ const PrivateLayout = ({ children }: Props): JSX.Element => {
 
             <div className="dropdown">
               <div tabIndex={0} className="flex cursor-pointer">
-                <img src={user?.profileImageUrl} alt="Avatar Min" className="w-11 aspect-square rounded-full" />
+                <img src={profile?.avatarUrl} alt="Avatar Min" className="w-11 aspect-square rounded-full" />
                 <div className="flex flex-col ml-4 mr-4">
-                  <p>{user?.fullName}</p>
-                  <p className="text-[13px] text-[#8A92A6]">{user?.emailAddresses?.[0]?.emailAddress ?? ''}</p>
+                  <p>{profile?.name}</p>
+                  <p className="text-[13px] text-[#8A92A6]">{profile?.email}</p>
                 </div>
               </div>
               <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">

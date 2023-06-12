@@ -1,3 +1,4 @@
+import {  signIn } from '@/api/auth'
 import loginBg from '@/assets/images/login-bg.png'
 import logoBg from '@/assets/images/logo-bg.png'
 import Button from '@/components/Button'
@@ -5,11 +6,11 @@ import FormItem from '@/components/FormItem'
 import Input from '@/components/Input'
 import Logo from '@/components/Logo'
 import Socials from '@/components/Socials'
+import { showError } from '@/utils/showError'
 import { validator } from '@/utils/validator'
-import { useSignIn, useUser } from '@clerk/clerk-react'
+import { AxiosError } from 'axios'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import toast from 'react-hot-toast'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 interface Inputs {
   email: string
@@ -17,9 +18,6 @@ interface Inputs {
 }
 
 const Login = (): JSX.Element | null => {
-  const { isSignedIn } = useUser()
-  const { signIn, setActive } = useSignIn()
-
   const {
     register,
     handleSubmit,
@@ -34,31 +32,23 @@ const Login = (): JSX.Element | null => {
 
   const navigate = useNavigate()
 
-  const onSubmit: SubmitHandler<Inputs> = data => {
-    signIn
-      ?.create({
-        identifier: data.email,
-        password: data.password
-      })
-      .then(async result => {
-        if (result.status === 'complete') {
-          await setActive({ session: result.createdSessionId })
-          navigate('/')
-        }
-      })
-      .catch(err => toast.error(err.errors[0].longMessage))
+  const onSubmit: SubmitHandler<Inputs> = async ({ email, password}) => {
+    try {
+      const res = await signIn(email, password)
+      const accessToken = res.data.accessToken
+      localStorage.setItem('accessToken', accessToken)
+      navigate('/')
+    } catch (error) {
+      showError(error)
+    }
   }
 
   const forgetPassword = () => {
-    navigate('/reset-password')
+    navigate('/forgot-password')
   }
 
   const moveToSignUp = () => {
     navigate('/sign-up')
-  }
-
-  if (isSignedIn === undefined || isSignedIn) {
-    return <Navigate to="/" />
   }
 
   return (
@@ -98,7 +88,16 @@ const Login = (): JSX.Element | null => {
                     />
                   </FormItem>
                   <FormItem label="Password" error={errors?.password?.message}>
-                    <Input type="password" {...register('password', { required: true })} />
+                    <Input
+                      type="password"
+                      {...register('password', {
+                        required: 'Password is required',
+                        pattern: {
+                          value: validator.password,
+                          message: 'Please enter a valid password'
+                        }
+                      })}
+                    />
                   </FormItem>
                   <div className="flex flex-row items-start p-0 gap-40 order-2 w-full">
                     <div className="remember flex flex-row items-center gap-2 order-0">
@@ -116,9 +115,7 @@ const Login = (): JSX.Element | null => {
                     </p>
                   </div>
                 </div>
-                <Button type="submit">
-                  Sign in
-                </Button>
+                <Button type="submit">Sign in</Button>
               </form>
             </div>
             <div className="flex flex-col justify-center items-center gap-4 order-1">
