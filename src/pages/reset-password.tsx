@@ -9,7 +9,7 @@ import { validator } from '@/utils/validator'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, useNavigate } from 'react-router-dom'
 
 interface Inputs {
   newPassword: string
@@ -17,6 +17,7 @@ interface Inputs {
 
 const ResetPassword = (): JSX.Element => {
   let [searchParams] = useSearchParams()
+  const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const {
     register,
@@ -30,10 +31,10 @@ const ResetPassword = (): JSX.Element => {
     try {
       setIsLoading(true)
       const token = searchParams.get('token')
-      console.log(token)
       if (!token) return toast.error('Token is required')
       await resetPassword(newPassword, token)
       toast.success('Please check your email!')
+      navigate('/sign-in')
     } catch (error) {
       showError(error)
     } finally {
