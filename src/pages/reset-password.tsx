@@ -9,7 +9,7 @@ import { validator } from '@/utils/validator'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
-import { useParams, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 
 interface Inputs {
   newPassword: string
