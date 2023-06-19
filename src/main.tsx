@@ -1,21 +1,22 @@
 import NotFoundPage from '@/pages/404'
 import ServerErrorPage from '@/pages/500'
 import Email from '@/pages/email'
+import ForgotPassword from '@/pages/forgot-password'
+import ResetPassword from '@/pages/reset-password'
 import Home from '@/pages/index'
 import LockScreen from '@/pages/lock-screen'
-import ForgotPassword from '@/pages/forgot-password'
-import { ClerkProvider, RedirectToSignIn, SignedIn, SignedOut } from '@clerk/clerk-react'
+import { ClerkProvider } from '@clerk/clerk-react'
 import { createRoot } from 'react-dom/client'
+import { Toaster } from 'react-hot-toast'
 import { BrowserRouter, Outlet, Route, Routes, useNavigate } from 'react-router-dom'
 import { NavbarProvider } from './contexts/NavbarContext'
+import AuthGuard from './guards/AuthGuard'
 import Billing from './pages/billing'
 import Login from './pages/login'
 import Maintenance from './pages/maintenance'
 import MenuStyle from './pages/menu-style'
-import './style.css'
 import SignUp from './pages/sign-up'
-import { Toaster } from 'react-hot-toast'
-import AuthGuard from './guards/AuthGuard'
+import './style.css'
 
 const clerkPubKey = import.meta.env.VITE_APP_CLERK_PUBLISHABLE_KEY
 
@@ -32,6 +33,7 @@ const App = (): JSX.Element => {
         <Route path="/sign-in" element={<Login />} />
         <Route path="/sign-up/*" element={<SignUp />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/lock-screen" element={<LockScreen />} />
         <Route
           path="/"

@@ -20,6 +20,20 @@ export const forgotPassword = (email: string) => {
   })
 }
 
+export const resetPassword = (newPassword: string, token: string) => {
+  return request.post(
+    '/reset-password',
+    {
+      newPassword
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }
+  )
+}
+
 export const getProfile = () => {
   return request.get('/profile')
 }
