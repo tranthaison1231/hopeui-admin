@@ -20,6 +20,13 @@ export const forgotPassword = (email: string) => {
   })
 }
 
+export const changePassword = (password: string, newPassword: string) => {
+  return request.post('/change-password', {
+    password,
+    newPassword
+  })
+}
+
 export const resetPassword = (newPassword: string, token: string) => {
   return request.post(
     '/reset-password',

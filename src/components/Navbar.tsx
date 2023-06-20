@@ -14,11 +14,11 @@ import { ReactComponent as Table } from '@/assets/svgs/table.svg'
 import { ReactComponent as User } from '@/assets/svgs/user.svg'
 import { ReactComponent as Widget } from '@/assets/svgs/widget.svg'
 import { NavbarContext } from '@/contexts/NavbarContext'
+import { cn } from '@/utils/cn'
 import { useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Logo from "./Logo"
 import MenuItem from "./MenuItem"
-import clsx from 'clsx'
 
 const MENU_ITEMS = [
   {
@@ -115,7 +115,7 @@ const Navbar = (): JSX.Element => {
   const navigate = useNavigate()
 
   return (
-    <div className={clsx(`relative drop-shadow-md h-full bg-[#FFFFFF] flex justify-center`, {
+    <div className={cn(`relative drop-shadow-md h-full bg-[#FFFFFF] flex justify-center w-64`, {
       'w-28': isCollapsed
     })}>
       <button
@@ -124,7 +124,7 @@ const Navbar = (): JSX.Element => {
         `}
         onClick={toggleIsCollapsed}
       >
-        <ArrowLeft className={clsx({
+        <ArrowLeft className={cn({
           'rotate-180': isCollapsed
         })} />
       </button>

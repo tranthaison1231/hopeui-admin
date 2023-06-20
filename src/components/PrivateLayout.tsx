@@ -5,15 +5,16 @@ import search from '@/assets/images/search.png'
 import Navbar from '@/components/Navbar'
 import { NavbarContext } from '@/contexts/NavbarContext'
 import { useProfile } from '@/hooks/useProfile'
+import { cn } from '@/utils/cn'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-
 interface Props {
   children: React.ReactNode
+  bodyClass?: string
 }
 
-const PrivateLayout = ({ children }: Props): JSX.Element => {
+const PrivateLayout = ({ children, bodyClass }: Props): JSX.Element => {
   const { profile } = useProfile()
   const navigate = useNavigate()
   const { isCollapsed} = useContext(NavbarContext)
@@ -23,11 +24,19 @@ const PrivateLayout = ({ children }: Props): JSX.Element => {
     navigate('/sign-in')
   }
 
+  const handleChangePassword = () => {
+    navigate('/change-password')
+  }
+
+  const handleEditProfile = () => {
+    navigate('/edit-profile')
+  }
+
   return (
     <div className="w-full flex flex-row">
       <Navbar />
       <div className={`flex flex-col ${isCollapsed ? 'w-[calc(100%-7rem)]' : 'w-[calc(100%-16rem)]'}`}>
-        <div className="flex justify-between p-4 px-8 ">
+        <div className="flex justify-between p-4 px-8">
           <div className="flex justify-center items-center border-solid border-[#E9ECEF] border-[1px] rounded">
             <img src={search} alt="Search" className="h-6 pl-4" />
             <input type="text" placeholder="Search..." className="w-80 h-9 outline-none ml-2" />
@@ -46,6 +55,12 @@ const PrivateLayout = ({ children }: Props): JSX.Element => {
                 </div>
               </div>
               <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                <li onClick={handleEditProfile}>
+                  <a>Edit Profile</a>
+                </li>
+                <li onClick={handleChangePassword}>
+                  <a>Change Password</a>
+                </li>
                 <li onClick={handleLogout}>
                   <a>Logout</a>
                 </li>
@@ -53,7 +68,7 @@ const PrivateLayout = ({ children }: Props): JSX.Element => {
             </div>
           </div>
         </div>
-        <div className="bg-[#E5E5E5] p-5">{children}</div>
+        <div className={cn("bg-[#E5E5E5] p-5", bodyClass)}>{children}</div>
       </div>
     </div>
   )

@@ -17,6 +17,7 @@ import Maintenance from './pages/maintenance'
 import MenuStyle from './pages/menu-style'
 import SignUp from './pages/sign-up'
 import './style.css'
+import ChangePassword from './pages/change-password'
 
 const clerkPubKey = import.meta.env.VITE_APP_CLERK_PUBLISHABLE_KEY
 
@@ -45,6 +46,7 @@ const App = (): JSX.Element => {
         >
           <Route path="/" element={<Home />} />
           <Route path="/email" element={<Email />} />
+          <Route path="/change-password" element={<ChangePassword />} />
           <Route path="/maintenance" element={<Maintenance />} />
           <Route path="/500" element={<ServerErrorPage />} />
           <Route path="/billing" element={<Billing />} />
