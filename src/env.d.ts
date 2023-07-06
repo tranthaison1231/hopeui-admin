@@ -6,3 +6,10 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv
 }
+
+interface Window {
+  modal: {
+    showModal: () => void
+    close: () => void
+  }
+}

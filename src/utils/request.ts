@@ -13,8 +13,5 @@ request.interceptors.request.use(function (config) {
 })
 
 request.interceptors.response.use(function (config) {
-  config.data = {
-    ...config.data
-  }
   return config
 })

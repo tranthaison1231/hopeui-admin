@@ -1,5 +1,17 @@
 import { request } from '@/utils/request'
 
+interface User {
+  _id: number
+  email: string
+  name: string
+  avatarURL: string
+}
+
+interface UpdatedUserDto {
+  name?: string
+  avatarURL?: string
+}
+
 export const signIn = (email: string, password: string) => {
   return request.post('/sign-in', {
     email,
@@ -42,5 +54,9 @@ export const resetPassword = (newPassword: string, token: string) => {
 }
 
 export const getProfile = () => {
-  return request.get('/profile')
+  return request.get<User>('/profile')
+}
+
+export const updateProfile = (data: UpdatedUserDto) => {
+  return request.put<User>('/profile', data)
 }
