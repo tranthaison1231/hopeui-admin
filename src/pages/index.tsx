@@ -3,9 +3,7 @@ import { useRef } from 'react'
 
 const Dashboard = (): JSX.Element => {
   return (
-    <PrivateLayout>
-      Dashboard
-    </PrivateLayout>
+    <h1> hello </h1>
   )
 }
 

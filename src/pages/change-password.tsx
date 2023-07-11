@@ -45,7 +45,7 @@ const ChangePassword = (): JSX.Element => {
 
 
   return (
-    <PrivateLayout bodyClass="flex justify-center h-full items-center">
+    <div className="flex justify-center h-full items-center">
       <div className="card w-1/3 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title">Reset password!</h2>
@@ -92,11 +92,13 @@ const ChangePassword = (): JSX.Element => {
                 />
               </FormItem>
             </div>
-            <Button type="submit" isLoading={isLoading} disabled={isLoading}>Change Password</Button>
+            <Button type="submit" isLoading={isLoading} disabled={isLoading}>
+              Change Password
+            </Button>
           </form>
         </div>
       </div>
-    </PrivateLayout>
+    </div>
   )
 }
 

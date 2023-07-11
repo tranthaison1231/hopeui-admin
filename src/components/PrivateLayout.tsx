@@ -17,7 +17,7 @@ interface Props {
 }
 
 const PrivateLayout = ({ children, bodyClass }: Props): JSX.Element => {
-  const { data: profile } = useQuery('profile', getProfile)
+  const { data: profile, isFetching } = useQuery('profile', getProfile)
 
   const navigate = useNavigate()
   const { isCollapsed} = useContext(NavbarContext)
@@ -53,15 +53,35 @@ const PrivateLayout = ({ children, bodyClass }: Props): JSX.Element => {
 
               <div className="dropdown">
                 <div tabIndex={0} className="flex cursor-pointer">
-                  <img
-                    src={profile?.data.avatarURL}
-                    alt="Avatar Min"
-                    className="w-11 aspect-square object-cover rounded-full"
-                  />
-                  <div className="flex flex-col ml-4 mr-4">
-                    <p>{profile?.data?.name}</p>
-                    <p className="text-[13px] text-[#8A92A6]">{profile?.data?.email}</p>
-                  </div>
+                  {isFetching ? (
+                    <div className="animate-pulse flex">
+                      <svg
+                        className="w-11 h-11 text-gray-400"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z" />
+                      </svg>
+                      <div className="flex flex-col w-44 ml-4 mr-4">
+                        <p className="h-3 bg-gray-300 mb-3"></p>
+                        <div className="w-32 h-3 bg-gray-300 rounded-full "></div>
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <img
+                        src={profile?.data.avatarURL}
+                        alt="Avatar Min"
+                        className="w-11 aspect-square object-cover rounded-full"
+                      />
+                      <div className="flex flex-col ml-4 mr-4">
+                        <p>{profile?.data?.name ?? 'test'}</p>
+                        <p className="text-[13px] text-[#8A92A6]">{profile?.data?.email ?? 'admin123@gmail.com'}</p>
+                      </div>
+                    </>
+                  )}
                 </div>
                 <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                   <li onClick={handleEditProfile}>

@@ -1,6 +1,6 @@
 import { request } from '@/utils/request'
 
-interface User {
+export interface User {
   _id: number
   email: string
   name: string

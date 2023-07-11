@@ -1,10 +1,11 @@
 interface Props {
   children: React.ReactNode
   title: string
-  onOk?: () => void
+  onSubmit?: () => void
+  isSubmitLoading?: boolean
 }
 
-const Modal = ({ children, title, onOk }: Props) => {
+const Modal = ({ children, title, onSubmit, isSubmitLoading }: Props) => {
   return (
     <dialog id="modal" className="modal">
       <form method="dialog" className="modal-box">
@@ -12,7 +13,8 @@ const Modal = ({ children, title, onOk }: Props) => {
         <h3 className="font-bold text-lg">{title}</h3>
         <div className="py-4">{children}</div>
         <div className="modal-action">
-          <button className="btn btn-primary" onClick={onOk} type="button">
+          <button className="btn btn-primary" onClick={onSubmit} type="button">
+            {isSubmitLoading && <span className="loading loading-spinner"></span>}
             OK
           </button>
           <button className="btn">Close</button>
