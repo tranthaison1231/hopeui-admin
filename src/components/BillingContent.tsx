@@ -1,4 +1,4 @@
-import { FormBilling } from "./FormBilling"
+import { FormBilling } from './FormBilling'
 import logo from '@/assets/images/logo.png'
 
 const BillingContent = (): JSX.Element => {

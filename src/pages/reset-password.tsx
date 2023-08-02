@@ -7,7 +7,7 @@ import Logo from '@/components/Logo'
 import { showError } from '@/utils/showError'
 import { validator } from '@/utils/validator'
 import { useState } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { type SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 
@@ -16,7 +16,7 @@ interface Inputs {
 }
 
 const ResetPassword = (): JSX.Element => {
-  let [searchParams] = useSearchParams()
+  const [searchParams] = useSearchParams()
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const {

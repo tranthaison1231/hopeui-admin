@@ -2,7 +2,7 @@ import { createContext, useState } from 'react'
 
 export const NavbarContext = createContext({
   isCollapsed: false,
-  toggleIsCollapsed: () => {},
+  toggleIsCollapsed: () => {}
 })
 
 interface Props {

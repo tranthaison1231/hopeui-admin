@@ -20,7 +20,7 @@ const PrivateLayout = ({ children, bodyClass }: Props): JSX.Element => {
   const { data: profile, isFetching } = useQuery('profile', getProfile)
 
   const navigate = useNavigate()
-  const { isCollapsed} = useContext(NavbarContext)
+  const { isCollapsed } = useContext(NavbarContext)
 
   const handleLogout = () => {
     localStorage.removeItem('accessToken')
@@ -53,7 +53,8 @@ const PrivateLayout = ({ children, bodyClass }: Props): JSX.Element => {
 
               <div className="dropdown">
                 <div tabIndex={0} className="flex cursor-pointer">
-                  {isFetching ? (
+                  {isFetching
+                    ? (
                     <div className="animate-pulse flex">
                       <svg
                         className="w-11 h-11 text-gray-400"
@@ -69,7 +70,8 @@ const PrivateLayout = ({ children, bodyClass }: Props): JSX.Element => {
                         <div className="w-32 h-3 bg-gray-300 rounded-full "></div>
                       </div>
                     </div>
-                  ) : (
+                      )
+                    : (
                     <>
                       <img
                         src={profile?.data.avatarURL}
@@ -81,7 +83,7 @@ const PrivateLayout = ({ children, bodyClass }: Props): JSX.Element => {
                         <p className="text-[13px] text-[#8A92A6]">{profile?.data?.email ?? 'admin123@gmail.com'}</p>
                       </div>
                     </>
-                  )}
+                      )}
                 </div>
                 <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                   <li onClick={handleEditProfile}>

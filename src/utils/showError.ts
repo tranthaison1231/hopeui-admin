@@ -1,4 +1,4 @@
-import { AxiosError } from 'axios'
+import { type AxiosError } from 'axios'
 import toast from 'react-hot-toast'
 
 export const showError = (error: unknown) => {

@@ -1,5 +1,5 @@
 import { request } from '@/utils/request'
 
-export const uploadImage = (data: FormData) => {
-  return request.post('/upload', data)
+export const uploadImage = async (data: FormData) => {
+  return await request.post('/upload', data)
 }

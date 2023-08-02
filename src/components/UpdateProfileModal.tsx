@@ -1,16 +1,15 @@
-import { User, getProfile, updateProfile } from "@/api/auth"
-import { uploadImage } from "@/api/upload"
-import { showError } from "@/utils/showError"
-import { validator } from "@/utils/validator"
-import { SubmitHandler, useForm, useWatch } from "react-hook-form"
-import { toast } from "react-hot-toast"
+import { getProfile, updateProfile } from '@/api/auth'
+import { uploadImage } from '@/api/upload'
+import { showError } from '@/utils/showError'
+import { validator } from '@/utils/validator'
+import { type SubmitHandler, useForm, useWatch } from 'react-hook-form'
+import { toast } from 'react-hot-toast'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
-import Avatar from "./Avatar"
-import FormItem from "./FormItem"
-import Input from "./Input"
-import Modal from "./Modal"
-import UploadButton from "./UploadButton"
-import { useState } from "react"
+import Avatar from './Avatar'
+import FormItem from './FormItem'
+import Input from './Input'
+import Modal from './Modal'
+import UploadButton from './UploadButton'
 
 interface Inputs {
   name: string
@@ -29,11 +28,11 @@ const UpdateProfileModal = () => {
     setValue,
     clearErrors,
     control,
-    formState: { errors },
+    formState: { errors }
   } = useForm<Inputs>({
-    mode: 'onBlur',
+    mode: 'onBlur'
   })
-  
+
   useQuery('profile', getProfile, {
     onSuccess: (profile) => {
       setValue('name', profile.data.name)
@@ -41,12 +40,10 @@ const UpdateProfileModal = () => {
     }
   })
 
-
   const avatarURL = useWatch({
     control,
     name: 'avatarURL'
   })
-
 
   const onSubmit: SubmitHandler<Inputs> = async ({ name, avatarURL }) => {
     try {
@@ -70,8 +67,7 @@ const UpdateProfileModal = () => {
       clearErrors('avatarURL')
     } catch (error) {
       showError(error)
-    } 
-    
+    }
   }
 
   const handleRemoveAvatar = () => {
@@ -92,9 +88,11 @@ const UpdateProfileModal = () => {
           </FormItem>
 
           <FormItem label="Avatar URL" error={errors.avatarURL?.message}>
-            {avatarURL ? (
+            {avatarURL
+              ? (
               <Avatar url={avatarURL} onRemove={handleRemoveAvatar} />
-            ) : (
+                )
+              : (
               <UploadButton
                 isLoading={isUploadImageLoading}
                 accept="image/*"
@@ -107,7 +105,7 @@ const UpdateProfileModal = () => {
                 })}
                 onChange={onUpload}
               />
-            )}
+                )}
           </FormItem>
         </div>
       </form>

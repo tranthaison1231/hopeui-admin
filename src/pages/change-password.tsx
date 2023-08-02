@@ -2,11 +2,10 @@ import { changePassword } from '@/api/auth'
 import Button from '@/components/Button'
 import FormItem from '@/components/FormItem'
 import Input from '@/components/Input'
-import PrivateLayout from '@/components/PrivateLayout'
 import { showError } from '@/utils/showError'
 import { validator } from '@/utils/validator'
 import { useState } from 'react'
-import { SubmitHandler, useForm, useWatch } from 'react-hook-form'
+import { useForm, useWatch, type SubmitHandler } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
 
 interface Inputs {
@@ -26,10 +25,9 @@ const ChangePassword = (): JSX.Element => {
     mode: 'onBlur',
     defaultValues: {
       password: ''
-    },
+    }
   })
-  const newPassword = useWatch({ control: control,  name: 'newPassword' })
-  
+  const newPassword = useWatch({ control, name: 'newPassword' })
 
   const onSubmit: SubmitHandler<Inputs> = async ({ newPassword, password }) => {
     try {
@@ -38,11 +36,10 @@ const ChangePassword = (): JSX.Element => {
       toast.success('Change password successfully!')
     } catch (error) {
       showError(error)
-    } finally{
+    } finally {
       setIsLoading(false)
     }
   }
-
 
   return (
     <div className="flex justify-center h-full items-center">

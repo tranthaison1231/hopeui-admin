@@ -30,17 +30,16 @@ if (!clerkPubKey) {
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false,
+      refetchOnWindowFocus: false
     }
   }
 })
 
-
 const App = (): JSX.Element => {
   const navigate = useNavigate()
-  
+
   return (
-    <ClerkProvider publishableKey={clerkPubKey} navigate={to => navigate(to)}>
+    <ClerkProvider publishableKey={clerkPubKey} navigate={to => { navigate(to) }}>
       <Routes>
         <Route path="/sign-in" element={<Login />} />
         <Route path="/sign-up/*" element={<SignUp />} />

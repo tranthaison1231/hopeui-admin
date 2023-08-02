@@ -22,5 +22,4 @@ const Avatar = ({ url, onRemove }: AvatarProps) => {
   )
 }
 
-
 export default Avatar

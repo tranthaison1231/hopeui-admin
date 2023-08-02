@@ -19,5 +19,4 @@ const HeaderBackground = (): JSX.Element => {
   )
 }
 
-
 export default HeaderBackground

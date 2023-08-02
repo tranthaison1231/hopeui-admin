@@ -3,7 +3,6 @@ import Footer from '@/components/Footer'
 import HeaderBackground from '@/components/HeaderBackground'
 import PrivateLayout from '@/components/PrivateLayout'
 
-
 const Billing = (): JSX.Element => {
   return (
     <PrivateLayout>

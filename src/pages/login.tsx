@@ -1,4 +1,4 @@
-import {  signIn } from '@/api/auth'
+import { signIn } from '@/api/auth'
 import loginBg from '@/assets/images/login-bg.png'
 import logoBg from '@/assets/images/logo-bg.png'
 import Button from '@/components/Button'
@@ -8,8 +8,7 @@ import Logo from '@/components/Logo'
 import Socials from '@/components/Socials'
 import { showError } from '@/utils/showError'
 import { validator } from '@/utils/validator'
-import { AxiosError } from 'axios'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { type SubmitHandler, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
 interface Inputs {
@@ -32,7 +31,7 @@ const Login = (): JSX.Element | null => {
 
   const navigate = useNavigate()
 
-  const onSubmit: SubmitHandler<Inputs> = async ({ email, password}) => {
+  const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
     try {
       const res = await signIn(email, password)
       const accessToken = res.data.accessToken

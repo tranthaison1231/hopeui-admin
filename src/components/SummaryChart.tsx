@@ -1,6 +1,5 @@
-import { Area, AreaChart, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import ThisWeekSelector from './ThisWeekSelector'
-
 
 interface Summary {
   month: string
@@ -17,7 +16,7 @@ interface Props {
 
 const SummaryChart = ({ total, data, width = 800, height = 400 }: Props): JSX.Element => {
   return (
-    <div className="p-6 shadow-md rounded-xl" style={{ width: width, height: height }}>
+    <div className="p-6 shadow-md rounded-xl" style={{ width, height }}>
       <div className="flex w-full justify-between items-center  mb-6">
         <div>
           <h2 className="text-xl">${total}K</h2>

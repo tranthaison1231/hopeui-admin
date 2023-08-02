@@ -7,7 +7,7 @@ import Logo from '@/components/Logo'
 import { showError } from '@/utils/showError'
 import { validator } from '@/utils/validator'
 import { useState } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { type SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
 
 interface Inputs {
@@ -21,21 +21,21 @@ const ForgotPassword = (): JSX.Element => {
     handleSubmit,
     formState: { errors }
   } = useForm<Inputs>({
-    mode: 'onBlur',
+    mode: 'onBlur'
   })
 
-  const onSubmit: SubmitHandler<Inputs> = async ({ email}) => {
+  const onSubmit: SubmitHandler<Inputs> = async ({ email }) => {
     try {
       setIsLoading(true)
       await forgotPassword(email)
       toast.success('Please check your email!')
     } catch (error) {
       showError(error)
-    } finally{
+    } finally {
       setIsLoading(false)
     }
   }
-  
+
   return (
     <div className="w-full flex h-screen">
       <div className="w-1/2 flex items-center">

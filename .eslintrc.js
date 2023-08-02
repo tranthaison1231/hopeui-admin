@@ -11,6 +11,7 @@ module.exports = {
     project: './tsconfig.json'
   },
   rules: {
+    '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/consistent-type-assertions': [
       1,
@@ -22,7 +23,5 @@ module.exports = {
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off'
-  },
-  "eol-last": 0,
-  "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
+  }
 }

@@ -12,35 +12,35 @@ interface UpdatedUserDto {
   avatarURL?: string
 }
 
-export const signIn = (email: string, password: string) => {
-  return request.post('/sign-in', {
+export const signIn = async (email: string, password: string) => {
+  return await request.post('/sign-in', {
     email,
     password
   })
 }
 
-export const signUp = (email: string, password: string) => {
-  return request.post('/sign-up', {
+export const signUp = async (email: string, password: string) => {
+  return await request.post('/sign-up', {
     email,
     password
   })
 }
 
-export const forgotPassword = (email: string) => {
-  return request.post('/forgot-password', {
+export const forgotPassword = async (email: string) => {
+  return await request.post('/forgot-password', {
     email
   })
 }
 
-export const changePassword = (password: string, newPassword: string) => {
-  return request.post('/change-password', {
+export const changePassword = async (password: string, newPassword: string) => {
+  return await request.post('/change-password', {
     password,
     newPassword
   })
 }
 
-export const resetPassword = (newPassword: string, token: string) => {
-  return request.post(
+export const resetPassword = async (newPassword: string, token: string) => {
+  return await request.post(
     '/reset-password',
     {
       newPassword
@@ -53,10 +53,10 @@ export const resetPassword = (newPassword: string, token: string) => {
   )
 }
 
-export const getProfile = () => {
-  return request.get<User>('/profile')
+export const getProfile = async () => {
+  return await request.get<User>('/profile')
 }
 
-export const updateProfile = (data: UpdatedUserDto) => {
-  return request.put<User>('/profile', data)
+export const updateProfile = async (data: UpdatedUserDto) => {
+  return await request.put<User>('/profile', data)
 }

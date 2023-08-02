@@ -17,8 +17,8 @@ import { NavbarContext } from '@/contexts/NavbarContext'
 import { cn } from '@/utils/cn'
 import { useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import Logo from "./Logo"
-import MenuItem from "./MenuItem"
+import Logo from './Logo'
+import MenuItem from './MenuItem'
 
 const MENU_ITEMS = [
   {
@@ -32,7 +32,7 @@ const MENU_ITEMS = [
       {
         name: 'Menu Style',
         icon: <Menu />,
-        path: '/menu-style',
+        path: '/menu-style'
       }
     ]
   },
@@ -108,14 +108,13 @@ const MENU_ITEMS = [
   }
 ]
 
-
 const Navbar = (): JSX.Element => {
-  const {  isCollapsed, toggleIsCollapsed }  = useContext(NavbarContext)
+  const { isCollapsed, toggleIsCollapsed } = useContext(NavbarContext)
   const location = useLocation()
   const navigate = useNavigate()
 
   return (
-    <div className={cn(`relative drop-shadow-md h-full bg-[#FFFFFF] flex justify-center w-64`, {
+    <div className={cn('relative drop-shadow-md h-full bg-[#FFFFFF] flex justify-center w-64', {
       'w-28': isCollapsed
     })}>
       <button
@@ -135,7 +134,7 @@ const Navbar = (): JSX.Element => {
           <div key={item.title}>
             <div className="pt-3 justify-center p-2 pb-0 overflow-hidden">
               <div
-                className={`font-inter font-semibold	opacity-50 py-3 p-1 text-[#ADB5BD] ${ isCollapsed ? 'text-center' :'text-left'}`}
+                className={`font-inter font-semibold opacity-50 py-3 p-1 text-[#ADB5BD] ${isCollapsed ? 'text-center' : 'text-left'}`}
               >
                 {item.title}
               </div>
@@ -156,6 +155,7 @@ const Navbar = (): JSX.Element => {
         ))}
       </div>
     </div>
-  )}
+  )
+}
 
 export default Navbar

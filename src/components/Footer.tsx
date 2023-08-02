@@ -12,6 +12,7 @@ const Footer = ({ className = '' }: Props): JSX.Element => {
         © 2021 Hope UI, Made with ❤ by <a href="" className="text-blue-700"> IQONIC Design.</a>
       </div>
     </div>
-  )}
+  )
+}
 
 export default Footer

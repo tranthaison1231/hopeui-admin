@@ -1,28 +1,28 @@
 const BILL_ITEMS = [
   {
     item: 'Item 1',
-    content:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
     quantity: '5',
     price: '120.00',
     totals: '2,800.00'
   },
   {
     item: 'Item 2',
-    content:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
     quantity: '5',
     price: '120.00',
     totals: '2,800.00'
   },
   {
     item: 'Item 3',
-    content:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
     quantity: '5',
     price: '120.00',
     totals: '2,800.00'
   },
   {
     item: 'Item 4',
-    content:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
     quantity: '5',
     price: '120.00',
     totals: '2,800.00'

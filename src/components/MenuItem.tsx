@@ -10,14 +10,13 @@ interface Props {
   onClick?: () => void
 }
 
-
 const MenuItem = ({ icon, name, active, onClick }: Props): JSX.Element => {
   const { isCollapsed } = useContext(NavbarContext)
   return (
     <div
-      className={cn(`flex flex-row px-6 py-2 cursor-pointer`, {
+      className={cn('flex flex-row px-6 py-2 cursor-pointer', {
         'bg-primary rounded-md': active,
-        'justify-between': !active,
+        'justify-between': !active
       })}
       onClick={onClick}
     >
@@ -31,6 +30,3 @@ const MenuItem = ({ icon, name, active, onClick }: Props): JSX.Element => {
 }
 
 export default MenuItem
-
-
-

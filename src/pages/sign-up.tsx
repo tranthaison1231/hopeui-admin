@@ -7,7 +7,7 @@ import Logo from '@/components/Logo'
 import Socials from '@/components/Socials'
 import { validator } from '@/utils/validator'
 import { useSignUp } from '@clerk/clerk-react'
-import { SubmitHandler, useForm, useWatch } from 'react-hook-form'
+import { useForm, useWatch, type SubmitHandler } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 
@@ -23,22 +23,21 @@ interface Inputs {
 
 const SignUp = (): JSX.Element => {
   const navigate = useNavigate()
-  const { signUp, setActive, isLoaded } = useSignUp()
-  
+  const { signUp, isLoaded } = useSignUp()
+
   const {
     register,
     control,
     handleSubmit,
     formState: { errors }
   } = useForm<Inputs>({
-    mode: 'onBlur',
+    mode: 'onBlur'
   })
 
   const password = useWatch({
     control,
     name: 'password'
   })
-
 
   const onSubmit: SubmitHandler<Inputs> = data => {
     if (!isLoaded) return
@@ -53,7 +52,6 @@ const SignUp = (): JSX.Element => {
       })
       .catch(err => toast.error(err.errors[0].longMessage))
   }
-
 
   const moveToLogin = () => {
     navigate('/sign-in')
